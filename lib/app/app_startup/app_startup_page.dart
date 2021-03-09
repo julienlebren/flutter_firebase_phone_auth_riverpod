@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/error_page.dart';
-import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/loader.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/home/home_page.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_phone_page.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/providers.dart';
@@ -18,7 +17,9 @@ class AppStartupPage extends ConsumerWidget {
           return SignInPhonePageBuilder();
         }
       },
-      loading: () => Loader(),
+      loading: () => Center(
+        child: CircularProgressIndicator(),
+      ),
       error: (error, _) => ErrorPage(message: error.toString()),
     );
   }
