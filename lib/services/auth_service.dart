@@ -85,12 +85,16 @@ class AuthService extends StateNotifier<AuthState> {
     );
   }
 
-  Future<void> verifyCode(String smsCode) async {
+  Future<void> verifyCode(String smsCode, Function() completion) async {
     final AuthCredential credential = PhoneAuthProvider.credential(
       verificationId: _verificationId,
       smsCode: smsCode,
     );
-    await _firebaseAuth.signInWithCredential(credential);
+    final user = await _firebaseAuth.signInWithCredential(credential);
+
+    if (user != null) {
+      completion();
+    }
   }
 
   Future<void> signOut() async {

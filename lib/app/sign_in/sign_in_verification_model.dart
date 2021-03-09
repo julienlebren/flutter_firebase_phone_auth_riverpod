@@ -58,8 +58,9 @@ class SignInVerificationModel extends StateNotifier<SignInState> {
     _timer.cancel();
     state = SignInState.loading();
     try {
-      authService.verifyCode(smsCode);
-      state = SignInState.canSubmit();
+      authService.verifyCode(smsCode, () {
+        state = SignInState.success();
+      });
     } catch (e) {
       state = SignInState.error(e.message);
     }

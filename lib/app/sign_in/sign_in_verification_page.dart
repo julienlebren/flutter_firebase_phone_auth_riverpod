@@ -26,7 +26,10 @@ class SignInVerificationPageBuilder extends StatelessWidget {
     return ProviderListener<SignInState>(
       provider: signInVerificationModelProvider.state,
       onChange: (context, state) async {
-        if (state == SignInState.success()) {}
+        if (state == SignInState.success()) {
+          Navigator.popUntil(
+              context, ModalRoute.withName(AppRoutes.startupPage));
+        }
       },
       child: Consumer(
         builder: (context, watch, child) {

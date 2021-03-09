@@ -10,17 +10,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: TextButton(
-          child: Text(
-            "Logout",
-            style: TextStyle(
-              fontSize: 18.0,
-              color: Colors.red,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Container(
+        child: Center(
+          child: TextButton(
+            child: Text(
+              "Logout",
+              style: TextStyle(
+                fontSize: 18.0,
+                color: Colors.red,
+              ),
             ),
+            onPressed: () => _signOut(context),
           ),
-          onPressed: () => _signOut(context),
         ),
       ),
     );

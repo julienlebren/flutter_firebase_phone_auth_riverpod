@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/countries/countries_page.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_phone_page.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_verification_page.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/main.dart';
 
 class AppRoutes {
+  static const startupPage = '/startup-page';
   static const countriesPage = '/countries-page';
   static const signInPhonePage = '/sign-in-phone-page';
   static const signInVerificationPage = '/sign-in-verification-page';
@@ -12,6 +14,12 @@ class AppRoutes {
 class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case AppRoutes.startupPage:
+        return MaterialPageRoute<dynamic>(
+          builder: (_) => StartupPage(),
+          settings: settings,
+          fullscreenDialog: true,
+        );
       case AppRoutes.countriesPage:
         return MaterialPageRoute<dynamic>(
           builder: (_) => CountriesPage(),

@@ -50,12 +50,6 @@ class CountriesPage extends StatelessWidget {
       title: Row(
         children: <Widget>[
           Text(
-            '${_flag(country.countryCode)}',
-            textAlign: TextAlign.left,
-            style: TextStyle(fontSize: 20.0),
-          ),
-          SizedBox(width: 10),
-          Text(
             '${country.countryName}',
             textAlign: TextAlign.left,
             style: TextStyle(
@@ -79,10 +73,5 @@ class CountriesPage extends StatelessWidget {
         Navigator.pop(context);
       },
     );
-  }
-
-  String _flag(String countryCode) {
-    return countryCode.toUpperCase().replaceAllMapped(RegExp(r'[A-Z]'),
-        (match) => String.fromCharCode(match.group(0).codeUnitAt(0) + 127397));
   }
 }
