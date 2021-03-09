@@ -108,10 +108,7 @@ class _SignInPhonePageState extends State<SignInPhonePage> {
       appBar: AppBar(
         title: Text(
           "Sign in with phone number",
-          style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.blue,
-        elevation: 1,
       ),
       body: SizedBox.expand(
         child: Padding(
@@ -154,6 +151,10 @@ class _SignInPhonePageState extends State<SignInPhonePage> {
                   color: Colors.grey[400],
                 ),
                 border: OutlineInputBorder(),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.grey[300], width: 1.0),
+                  borderRadius: BorderRadius.circular(3.0),
+                ),
               ),
               inputFormatters: [widget.formatter],
             ),

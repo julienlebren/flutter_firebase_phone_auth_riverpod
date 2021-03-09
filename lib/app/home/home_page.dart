@@ -12,6 +12,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text(
+          "Firebase Phone Auth with Riverpod",
+        ),
+      ),
       body: Container(
         child: Center(
           child: TextButton(

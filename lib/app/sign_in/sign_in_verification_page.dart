@@ -103,10 +103,7 @@ class _SignInVerificationPageState extends State<SignInVerificationPage> {
       appBar: AppBar(
         title: Text(
           "Verification code",
-          style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.blue,
-        elevation: 1,
       ),
       body: SizedBox.expand(
         child: Padding(

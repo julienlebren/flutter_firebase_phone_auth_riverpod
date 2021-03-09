@@ -14,6 +14,12 @@ class SignInLandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text(
+          "Firebase Phone Auth with Riverpod",
+        ),
+      ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 40.0),
         child: Column(
