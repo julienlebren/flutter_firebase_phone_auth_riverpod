@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/countries/countries_page.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/routing/app_router.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_phone_model.dart';
-import 'package:flutter_firebase_phone_auth_riverpod/providers.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/global_providers.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/state/sign_in_state.dart';
 import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

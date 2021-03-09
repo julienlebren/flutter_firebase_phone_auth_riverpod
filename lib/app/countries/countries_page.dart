@@ -1,4 +1,4 @@
-import 'package:flutter_firebase_phone_auth_riverpod/providers.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/global_providers.dart';
 import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
