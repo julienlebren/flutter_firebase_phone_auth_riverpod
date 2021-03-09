@@ -17,12 +17,12 @@ class CustomElevatedButton extends StatelessWidget {
         onPrimary: Colors.white, // foreground
       ),
       child: Padding(
-        padding: const EdgeInsets.all(2.0),
+        padding: const EdgeInsets.all(20.0),
         child: Text(
           title,
           textAlign: TextAlign.center,
           style: TextStyle(
-              fontSize: 18.0, fontWeight: FontWeight.w500, color: Colors.white),
+              fontSize: 20.0, fontWeight: FontWeight.w500, color: Colors.white),
         ),
       ),
     );

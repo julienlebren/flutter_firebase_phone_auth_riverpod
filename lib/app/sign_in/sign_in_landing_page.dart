@@ -21,11 +21,12 @@ class SignInLandingPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Spacer(),
-            Center(child: FlutterLogo()),
-            SizedBox(height: 12),
+            Center(child: FlutterLogo(size: 120)),
+            SizedBox(height: 30),
             Text(
               "Welcome to this demo app using Firebase Phone Authentication and Riverpod for its State Management",
               style: Theme.of(context).textTheme.headline6,
+              textAlign: TextAlign.center,
             ),
             Spacer(),
             SizedBox(

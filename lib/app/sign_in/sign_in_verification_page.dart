@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/buttons.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/routing/app_router.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_verification_model.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/global_providers.dart';
@@ -113,7 +114,7 @@ class _SignInVerificationPageState extends State<SignInVerificationPage> {
               padding: const EdgeInsets.all(30.0),
               child: PinPut(
                 fieldsCount: 6,
-                textStyle: TextStyle(fontSize: 56),
+                textStyle: TextStyle(fontSize: 40),
                 onTap: () {
                   if (widget.errorText != null) {
                     controller.text = "";
@@ -124,28 +125,25 @@ class _SignInVerificationPageState extends State<SignInVerificationPage> {
                 controller: controller,
                 pinAnimationType: PinAnimationType.none,
                 submittedFieldDecoration: _pinPutDecoration.copyWith(
-                    border: Border(
-                  bottom: BorderSide(
-                    color: Theme.of(context).textTheme.bodyText1.color,
-                    width: 1.0,
-                  ),
-                )),
+                  border: Border.all(color: Colors.grey[300]),
+                ),
                 selectedFieldDecoration: _pinPutDecoration.copyWith(
-                    border: Border(
-                  bottom: BorderSide(
-                    color: Colors.blueAccent,
-                    width: 1.0,
-                  ),
-                )),
+                  border: Border.all(color: Colors.blueAccent),
+                ),
                 followingFieldDecoration: _pinPutDecoration,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (s) {
-                  if (widget.errorText == null && s.length == 6)
-                    widget.verifyCode(s);
-                  return null;
-                },
               ),
             ),
+            SizedBox(
+              width: double.infinity,
+              child: CustomElevatedButton(
+                title: "Continue",
+                onPressed: () => widget.canSubmit
+                    ? widget.verifyCode(controller.text)
+                    : null,
+              ),
+            ),
+            SizedBox(height: 15),
             if (widget.errorText != null) ...[
               Text(widget.errorText,
                   style: TextStyle(color: Colors.red, fontSize: 16)),
@@ -180,12 +178,8 @@ class _SignInVerificationPageState extends State<SignInVerificationPage> {
 
   BoxDecoration get _pinPutDecoration {
     return BoxDecoration(
-      border: Border(
-        bottom: BorderSide(
-          color: Colors.grey[300],
-          width: 1.0,
-        ),
-      ),
+      border: Border.all(color: Colors.grey[300]),
+      borderRadius: BorderRadius.circular(5.0),
     );
   }
 }

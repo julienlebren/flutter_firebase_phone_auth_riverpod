@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/buttons.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/countries/countries_page.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/routing/app_router.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_phone_model.dart';
@@ -106,91 +107,75 @@ class _SignInPhonePageState extends State<SignInPhonePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-          title: Text(
-            "Sign in with phone number",
-            style: TextStyle(color: Colors.white),
-          ),
-          backgroundColor: Colors.blue,
-          elevation: 1),
+        title: Text(
+          "Sign in with phone number",
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.blue,
+        elevation: 1,
+      ),
       body: SizedBox.expand(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-          child: Column(
-            children: [
-              Column(children: [
-                TextButton(
-                  child: Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.only(bottom: 12),
-                    decoration: BoxDecoration(
-                      border: Border(
-                        bottom: BorderSide(
-                          color: Colors.grey[300],
-                          width: 1.0, // Underline thickness
-                        ),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Text(widget.countryName,
-                            style:
-                                TextStyle(fontSize: 18, letterSpacing: -0.2)),
-                        Spacer(),
-                      ],
-                    ),
+          child: Column(children: [
+            Container(
+              width: double.infinity,
+              child: OutlinedButton(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                  child: Row(
+                    children: [
+                      Text(
+                        widget.countryName,
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.normal),
+                      )
+                    ],
                   ),
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.only(top: 10.0, bottom: 0.0),
-                    primary: Colors.black,
-                    textStyle: TextStyle(
-                        fontSize: 18,
-                        letterSpacing: -0.2,
-                        color: Colors.grey[400]),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CountriesPage(),
-                      ),
-                    );
-                  },
                 ),
-                SizedBox(height: 5),
-                TextFormField(
-                  focusNode: focusNode,
-                  cursorColor: Theme.of(context).cursorColor,
-                  keyboardType: TextInputType.phone,
-                  controller: controller,
-                  style: TextStyle(fontSize: 18, letterSpacing: -0.2),
-                  decoration: InputDecoration(
-                    hintText: 'Phone number',
-                    hintStyle: TextStyle(
-                      fontSize: 18,
-                      letterSpacing: -0.2,
-                      color: Colors.grey[400],
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blueAccent),
-                    ),
-                    enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey[300]),
-                    ),
-                  ),
-                  inputFormatters: [widget.formatter],
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoutes.countriesPage);
+                },
+                style: OutlinedButton.styleFrom(
+                  primary: Colors.black,
                 ),
-                if (widget.errorText != null)
-                  Padding(
-                    padding: EdgeInsets.only(top: 45.0),
-                    child: Text(
-                      widget.errorText,
-                      style: TextStyle(color: Colors.red, fontSize: 16),
-                    ),
-                  ),
-                SizedBox(height: 30),
-              ]),
-            ],
-          ),
+              ),
+            ),
+            SizedBox(height: 10),
+            TextFormField(
+              focusNode: focusNode,
+              keyboardType: TextInputType.phone,
+              controller: controller,
+              style: TextStyle(fontSize: 18),
+              decoration: InputDecoration(
+                hintText: 'Phone number',
+                hintStyle: TextStyle(
+                  fontSize: 18,
+                  letterSpacing: -0.2,
+                  color: Colors.grey[400],
+                ),
+                border: OutlineInputBorder(),
+              ),
+              inputFormatters: [widget.formatter],
+            ),
+            SizedBox(height: 15),
+            SizedBox(
+              width: double.infinity,
+              child: CustomElevatedButton(
+                title: "Continue",
+                onPressed: () => widget.canSubmit ? widget.onSubmit : null,
+              ),
+            ),
+            if (widget.errorText != null)
+              Padding(
+                padding: EdgeInsets.only(top: 45.0),
+                child: Text(
+                  widget.errorText,
+                  style: TextStyle(color: Colors.red, fontSize: 16),
+                ),
+              ),
+            SizedBox(height: 30),
+          ]),
         ),
       ),
     );

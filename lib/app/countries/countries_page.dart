@@ -9,33 +9,15 @@ class CountriesPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(
-          "Country / Region",
-          style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-              fontSize: 18.0,
-              letterSpacing: -0.5),
-        ),
-        backgroundColor: Colors.white,
+        title: Text("Country / Region"),
+        backgroundColor: Colors.blue,
         elevation: 1,
-        iconTheme: IconThemeData(
-          size: 28,
-          color: Colors.grey, //change your color here
-        ),
       ),
       body: Consumer(
         builder: (context, watch, child) {
           final authService = context.read(authServiceProvider);
-          return ListView.separated(
+          return ListView.builder(
             itemCount: authService.countries.length,
-            separatorBuilder: (_, __) => Padding(
-              padding: EdgeInsets.only(left: 45.0),
-              child: Divider(
-                color: Colors.grey[400],
-                height: 0.5,
-              ),
-            ),
             itemBuilder: (BuildContext context, int index) {
               final country = authService.countries[index];
               final isSelected =

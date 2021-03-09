@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/error_page.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/home/home_page.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/app/routing/app_router.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_landing_page.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/global_providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,10 +26,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         textTheme: TextTheme(
-          headline6: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+          headline6: TextStyle(fontSize: 20.0),
         ),
       ),
       home: StartupPage(),
+      onGenerateRoute: (settings) => AppRouter.onGenerateRoute(settings),
     );
   }
 }
