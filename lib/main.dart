@@ -21,6 +21,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: TextTheme(
+          headline6: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+        ),
       ),
       home: AppStartupPage(),
     );

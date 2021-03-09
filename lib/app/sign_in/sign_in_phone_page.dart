@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/app/countries/countries_page.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/app/routing/app_router.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_phone_model.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/providers.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/state/sign_in_state.dart';
+import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final signInPhoneModelProvider =
     StateNotifierProvider.autoDispose<SignInPhoneModel>((ref) {
@@ -96,155 +103,94 @@ class _SignInPhonePageState extends State<SignInPhonePage> {
 
   @override
   Widget build(BuildContext context) {
-    return PlatformWidget(
-      androidBuilder: _buildAndroid,
-      iosBuilder: _buildIos,
-    );
-  }
-
-  Widget _buildAndroid(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(
-          AppLocalizations.of(context).signInPhoneTitle,
-          style: TextStyle(color: Colors.white),
-        ),
-        backgroundColor: Colors.blue,
-        elevation: 1,
-      ),
-      body: _buildContents(context),
-      floatingActionButton: widget.canSubmit
-          ? FloatingActionButton(
-              onPressed: (widget.canSubmit) ? () => widget.onSubmit() : null,
-              child: Icon(Icons.arrow_forward),
-              backgroundColor: Colors.blue,
-            )
-          : null,
-    );
-  }
-
-  Widget _buildIos(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        backgroundColor: Colors.white,
-        border: Border(bottom: BorderSide(color: Colors.transparent)),
-        trailing: GestureDetector(
-          onTap: widget.canSubmit ? () => widget.onSubmit() : null,
-          child: widget.isLoading
-              ? CupertinoActivityIndicator()
-              : Text(
-                  AppLocalizations.of(context).nextButton,
-                  style: TextStyle(
-                      fontSize: 18,
-                      color: widget.canSubmit
-                          ? Colors.blueAccent
-                          : Colors.grey[300]),
-                ),
-        ),
-      ),
-      child: SafeArea(
-        child: _buildContents(context),
-      ),
-    );
-  }
-
-  Widget _buildContents(BuildContext context) {
-    return SizedBox.expand(
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
-        child: Column(
-          children: [
-            if (Platform.isIOS)
-              SignInIosHeader(
-                title: AppLocalizations.of(context).signInPhoneTitle,
-                subtitle: AppLocalizations.of(context).signInPhoneSubtitle,
-              ),
-            Column(children: [
-              TextButton(
-                child: Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.only(bottom: 12),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Colors.grey[300],
-                        width: 1.0, // Underline thickness
+          title: Text(
+            "Sign in with phone number",
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Colors.blue,
+          elevation: 1),
+      body: SizedBox.expand(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+          child: Column(
+            children: [
+              Column(children: [
+                TextButton(
+                  child: Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.only(bottom: 12),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.grey[300],
+                          width: 1.0, // Underline thickness
+                        ),
                       ),
                     ),
+                    child: Row(
+                      children: [
+                        Text(widget.countryName,
+                            style:
+                                TextStyle(fontSize: 18, letterSpacing: -0.2)),
+                        Spacer(),
+                      ],
+                    ),
                   ),
-                  child: Row(
-                    children: [
-                      Text(widget.countryName,
-                          style: TextStyle(fontSize: 18, letterSpacing: -0.2)),
-                      Spacer(),
-                      Icon(CupertinoIcons.chevron_right,
-                          size: 22, color: Colors.grey)
-                    ],
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.only(top: 10.0, bottom: 0.0),
+                    primary: Colors.black,
+                    textStyle: TextStyle(
+                        fontSize: 18,
+                        letterSpacing: -0.2,
+                        color: Colors.grey[400]),
                   ),
-                ),
-                style: TextButton.styleFrom(
-                  padding: EdgeInsets.only(top: 10.0, bottom: 0.0),
-                  primary: Colors.black,
-                  textStyle: TextStyle(
-                      fontSize: 18,
-                      letterSpacing: -0.2,
-                      color: Colors.grey[400]),
-                ),
-                onPressed: () {
-                  if (Platform.isIOS)
-                    showCupertinoModalBottomSheet(
-                      context: context,
-                      duration: Duration(milliseconds: 300),
-                      builder: (context) => CountriesPage(),
-                    );
-                  else
+                  onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => CountriesPage(),
                       ),
                     );
-                },
-              ),
-              SizedBox(height: 5),
-              TextFormField(
-                focusNode: focusNode,
-                cursorColor: Theme.of(context).cursorColor,
-                keyboardType: TextInputType.phone,
-                controller: controller,
-                style: TextStyle(fontSize: 18, letterSpacing: -0.2),
-                decoration: InputDecoration(
-                  hintText: 'Phone number',
-                  hintStyle: TextStyle(
-                    fontSize: 18,
-                    letterSpacing: -0.2,
-                    color: Colors.grey[400],
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: CupertinoColors.systemBlue),
-                  ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey[300]),
-                  ),
+                  },
                 ),
-                inputFormatters: [widget.formatter],
-              ),
-              if (widget.errorText != null)
-                Padding(
-                  padding: EdgeInsets.only(top: 45.0),
-                  child: Text(
-                    widget.errorText,
-                    style: TextStyle(color: Colors.red, fontSize: 16),
+                SizedBox(height: 5),
+                TextFormField(
+                  focusNode: focusNode,
+                  cursorColor: Theme.of(context).cursorColor,
+                  keyboardType: TextInputType.phone,
+                  controller: controller,
+                  style: TextStyle(fontSize: 18, letterSpacing: -0.2),
+                  decoration: InputDecoration(
+                    hintText: 'Phone number',
+                    hintStyle: TextStyle(
+                      fontSize: 18,
+                      letterSpacing: -0.2,
+                      color: Colors.grey[400],
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.blueAccent),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey[300]),
+                    ),
                   ),
+                  inputFormatters: [widget.formatter],
                 ),
-              SizedBox(height: 30),
-            ]),
-            if (Platform.isAndroid)
-              SignInAndroidFooter(
-                subtitle: AppLocalizations.of(context).signInPhoneSubtitle,
-              ),
-          ],
+                if (widget.errorText != null)
+                  Padding(
+                    padding: EdgeInsets.only(top: 45.0),
+                    child: Text(
+                      widget.errorText,
+                      style: TextStyle(color: Colors.red, fontSize: 16),
+                    ),
+                  ),
+                SizedBox(height: 30),
+              ]),
+            ],
+          ),
         ),
       ),
     );
