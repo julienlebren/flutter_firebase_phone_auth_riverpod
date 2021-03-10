@@ -10,10 +10,10 @@ class ErrorText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 45.0),
+      padding: EdgeInsets.only(top: 25.0),
       child: Text(
         message,
-        style: TextStyle(color: Colors.red, fontSize: 16),
+        style: TextStyle(color: Colors.red, fontSize: 17),
       ),
     );
   }

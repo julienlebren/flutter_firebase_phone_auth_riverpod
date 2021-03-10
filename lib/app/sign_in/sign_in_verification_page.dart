@@ -135,36 +135,28 @@ class _SignInVerificationPageState extends State<SignInVerificationPage> {
                   border: Border.all(color: Colors.grey[300]),
                 ),
                 selectedFieldDecoration: _pinPutDecoration.copyWith(
-                  border: Border.all(color: Colors.blueAccent),
+                  border: Border.all(color: Colors.blue),
                 ),
                 followingFieldDecoration: _pinPutDecoration,
                 autovalidateMode: AutovalidateMode.disabled,
+                validator: (s) {
+                  if (widget.errorText == null && s.length == 6)
+                    widget.verifyCode(s);
+                  return null;
+                },
               ),
             ),
-            SizedBox(
-              width: double.infinity,
-              child: CustomElevatedButton(
-                title: "Continue",
-                onPressed: widget.canSubmit
-                    ? widget.verifyCode(controller.text)
-                    : null,
+            TextButton(
+              onPressed:
+                  widget.delayBeforeNewCode > 0 ? null : widget.resendCode,
+              child: Text(
+                widget.delayBeforeNewCode > 0
+                    ? "If you did not receive the SMS, you will be able to request a new one in ${widget.delayBeforeNewCode.toString()} seconds"
+                    : "Resend to ${widget.phoneNumber}",
+                textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 15),
-            if (widget.errorText != null) ...[
-              ErrorText(message: widget.errorText),
-            ] else ...[
-              TextButton(
-                onPressed:
-                    widget.delayBeforeNewCode > 0 ? null : widget.resendCode,
-                child: Text(
-                  widget.delayBeforeNewCode > 0
-                      ? "If you did not receive the SMS, you will be able to request a new one in ${widget.delayBeforeNewCode.toString()} seconds"
-                      : "Resend to ${widget.phoneNumber}",
-                  textAlign: TextAlign.center,
-                ),
-              )
-            ],
+            if (widget.errorText != null) ErrorText(message: widget.errorText),
           ]),
         ),
       ),

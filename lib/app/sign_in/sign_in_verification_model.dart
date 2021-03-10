@@ -34,7 +34,6 @@ class SignInVerificationModel extends StateNotifier<SignInState> {
         if (_countdown == 0) {
           timer.cancel();
         } else {
-          print("_countdown: $_countdown");
           _countdown--;
           countdown.add(_countdown);
         }
@@ -55,14 +54,17 @@ class SignInVerificationModel extends StateNotifier<SignInState> {
   }
 
   Future<void> verifyCode(String smsCode) async {
-    _timer.cancel();
     state = SignInState.loading();
     try {
-      authService.verifyCode(smsCode, () {
+      await authService.verifyCode(smsCode, () {
         state = SignInState.success();
       });
     } catch (e) {
-      state = SignInState.error(e.message);
+      if (e.code == "invalid-verification-code") {
+        state = SignInState.error("Invalid verification code!");
+      } else {
+        state = SignInState.error(e.message);
+      }
     }
   }
 }

@@ -18,7 +18,7 @@ class CustomElevatedButton extends StatelessWidget {
           if (states.contains(MaterialState.disabled)) {
             return Colors.grey; // Disabled color
           }
-          return Colors.blueAccent; // Regular color
+          return Colors.blue; // Regular color
         }),
       ),
       child: Padding(

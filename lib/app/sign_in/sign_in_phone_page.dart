@@ -100,7 +100,6 @@ class _SignInPhonePageState extends State<SignInPhonePage> {
   final focusNode = FocusNode();
 
   void initState() {
-    print("_SignInPhonePageState initState");
     super.initState();
     Future.delayed(Duration(milliseconds: 100), () {
       focusNode.requestFocus();
