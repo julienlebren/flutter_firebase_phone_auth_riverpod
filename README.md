@@ -4,5 +4,10 @@
 
 This example project shows how to set up a Firebase Phone Auth in Flutter with Riverpod for its state management
 
+This reference project shows how to implement a (Netflix-inspired) movie app with different state management techniques in Flutter:
+
+![App preview 1](media/screenshot1.png) ![App preview 2](media/screenshot2.png) ![App preview 3](media/screenshot3.png)
+
+
 
 Feel free to ask me your questions on [Twitter](https://twitter.com/hikeland).
