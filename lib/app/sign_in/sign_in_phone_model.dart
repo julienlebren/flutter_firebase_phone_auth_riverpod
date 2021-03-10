@@ -10,12 +10,11 @@ class SignInPhoneModel extends StateNotifier<SignInState> {
   }) : super(const SignInState.notValid());
 
   AuthService authService;
-  String get countryName => authService.countryName;
 
   LibPhonenumberTextFormatter get phoneNumberFormatter {
     return LibPhonenumberTextFormatter(
       phoneNumberType: PhoneNumberType.mobile,
-      phoneNumberFormat: PhoneNumberFormat.national,
+      phoneNumberFormat: PhoneNumberFormat.international,
       overrideSkipCountryCode: authService.countryCode,
       onFormatFinished: (inputText) async => _parsePhoneNumber(inputText),
     );
@@ -26,7 +25,6 @@ class SignInPhoneModel extends StateNotifier<SignInState> {
       await authService.parsePhoneNumber(inputText);
       print("Phone number is valid, state set to 'canSubmit'");
       state = SignInState.canSubmit();
-      await verifyPhone();
     } catch (e) {
       if (!e.message.contains('parse')) {
         state = SignInState.error(e.message);

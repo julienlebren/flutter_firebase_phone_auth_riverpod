@@ -10,11 +10,16 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   Widget build(BuildContext context) {
+    print("$title onPressed: $onPressed");
     return ElevatedButton(
       onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        primary: Colors.blue, // background
-        onPrimary: Colors.white, // foreground
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
+          if (states.contains(MaterialState.disabled)) {
+            return Colors.grey; // Disabled color
+          }
+          return Colors.blueAccent; // Regular color
+        }),
       ),
       child: Padding(
         padding: const EdgeInsets.all(20.0),

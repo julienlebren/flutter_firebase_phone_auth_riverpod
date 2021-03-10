@@ -17,8 +17,8 @@ class AuthService extends StateNotifier<AuthState> {
 
   Stream<User> authStateChanges() => _firebaseAuth.authStateChanges();
   String get countryCode => _selectedCountry.countryCode;
-  String get countryName => _selectedCountry.countryName;
-  String get formattedPhoneNumber => _phoneNumber['national'];
+  String get phoneCode => _selectedCountry.phoneCode;
+  String get formattedPhoneNumber => _phoneNumber['international'];
 
   Future<void> _loadCountries() async {
     try {

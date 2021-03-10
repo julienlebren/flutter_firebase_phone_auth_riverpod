@@ -4,7 +4,7 @@ import 'package:flutter_firebase_phone_auth_riverpod/services/auth_service.dart'
 import 'package:flutter_firebase_phone_auth_riverpod/state/sign_in_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final delayBeforeUserCanRequestNewCode = 15;
+final delayBeforeUserCanRequestNewCode = 30;
 
 class SignInVerificationModel extends StateNotifier<SignInState> {
   SignInVerificationModel({

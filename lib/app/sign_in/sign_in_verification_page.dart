@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/buttons.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/error_text.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/routing/app_router.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_verification_model.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/global_providers.dart';
@@ -109,6 +110,12 @@ class _SignInVerificationPageState extends State<SignInVerificationPage> {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
           child: Column(children: [
+            SizedBox(height: 20),
+            Text(
+              "Please enter the verfication code we sent to ${widget.phoneNumber}:",
+              style: Theme.of(context).textTheme.headline6,
+              textAlign: TextAlign.center,
+            ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20.0),
               padding: const EdgeInsets.all(30.0),
@@ -131,43 +138,31 @@ class _SignInVerificationPageState extends State<SignInVerificationPage> {
                   border: Border.all(color: Colors.blueAccent),
                 ),
                 followingFieldDecoration: _pinPutDecoration,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
+                autovalidateMode: AutovalidateMode.disabled,
               ),
             ),
             SizedBox(
               width: double.infinity,
               child: CustomElevatedButton(
                 title: "Continue",
-                onPressed: () => widget.canSubmit
+                onPressed: widget.canSubmit
                     ? widget.verifyCode(controller.text)
                     : null,
               ),
             ),
             SizedBox(height: 15),
             if (widget.errorText != null) ...[
-              Text(widget.errorText,
-                  style: TextStyle(color: Colors.red, fontSize: 16)),
+              ErrorText(message: widget.errorText),
             ] else ...[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Did not receive the SMS?",
-                      style: TextStyle(color: Colors.grey, fontSize: 16)),
-                  SizedBox(width: 5),
-                  GestureDetector(
-                    onTap: () {
-                      widget.resendCode();
-                    },
-                    child: Text(
-                        widget.delayBeforeNewCode > 0
-                            ? "Please wait ${widget.delayBeforeNewCode.toString()} sec"
-                            : "Resend",
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16)),
-                  ),
-                ],
+              TextButton(
+                onPressed:
+                    widget.delayBeforeNewCode > 0 ? null : widget.resendCode,
+                child: Text(
+                  widget.delayBeforeNewCode > 0
+                      ? "If you did not receive the SMS, you will be able to request a new one in ${widget.delayBeforeNewCode.toString()} seconds"
+                      : "Resend to ${widget.phoneNumber}",
+                  textAlign: TextAlign.center,
+                ),
               )
             ],
           ]),

@@ -34,6 +34,20 @@ class SignInLandingPage extends StatelessWidget {
               style: Theme.of(context).textTheme.headline6,
               textAlign: TextAlign.center,
             ),
+            SizedBox(height: 5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "assets/firebase.png",
+                  width: 150,
+                ),
+                Image.asset(
+                  "assets/riverpod.png",
+                  width: 150,
+                ),
+              ],
+            ),
             Spacer(),
             SizedBox(
               width: double.infinity,

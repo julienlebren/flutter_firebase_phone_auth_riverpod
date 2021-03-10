@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/buttons.dart';
+import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/error_text.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/routing/app_router.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_phone_model.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/global_providers.dart';
@@ -15,10 +16,11 @@ final signInPhoneModelProvider =
   );
 });
 
-final selectedCountryProvider = Provider.autoDispose<String>((ref) {
+final selectedCountryProvider =
+    Provider.autoDispose<CountryWithPhoneCode>((ref) {
   final authState = ref.watch(authStateProvider.state);
   return authState.maybeWhen(
-    ready: (selectedCountry) => selectedCountry.countryName,
+    ready: (selectedCountry) => selectedCountry,
     orElse: () => null,
   );
 });
@@ -41,10 +43,12 @@ class SignInPhonePageBuilder extends StatelessWidget {
       child: Consumer(
         builder: (context, watch, child) {
           final state = watch(signInPhoneModelProvider.state);
-          final countryName = watch(selectedCountryProvider);
+          final selectedCountry = watch(selectedCountryProvider);
           final model = context.read(signInPhoneModelProvider);
           return SignInPhonePage(
-            countryName: countryName,
+            phoneCode: '+${selectedCountry.phoneCode}',
+            phonePlaceholder: selectedCountry.exampleNumberMobileInternational
+                .replaceAll('+${selectedCountry.phoneCode} ', ''),
             formatter: model.phoneNumberFormatter,
             onSubmit: model.verifyPhone,
             canSubmit: state.maybeWhen(
@@ -73,13 +77,15 @@ class SignInPhonePage extends StatefulWidget {
     this.canSubmit = false,
     this.isLoading = false,
     this.errorText,
-    @required this.countryName,
+    @required this.phoneCode,
+    @required this.phonePlaceholder,
     @required this.formatter,
     @required this.onSubmit,
   }) : super(key: key);
 
   final LibPhonenumberTextFormatter formatter;
-  final String countryName;
+  final String phoneCode;
+  final String phonePlaceholder;
   final bool canSubmit;
   final bool isLoading;
   final String errorText;
@@ -114,66 +120,69 @@ class _SignInPhonePageState extends State<SignInPhonePage> {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
           child: Column(children: [
-            Container(
-              width: double.infinity,
-              child: OutlinedButton(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20.0),
-                  child: Row(
-                    children: [
-                      Text(
-                        widget.countryName,
+            SizedBox(height: 20),
+            Text(
+              "Please enter your phone number to receive a verification code.",
+              style: Theme.of(context).textTheme.headline6,
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                SizedBox(
+                  width: 80,
+                  child: OutlinedButton(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20.0),
+                      child: Text(
+                        widget.phoneCode,
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.normal),
-                      )
-                    ],
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(AppRoutes.countriesPage);
+                    },
+                    style: OutlinedButton.styleFrom(
+                      primary: Colors.black,
+                    ),
                   ),
                 ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed(AppRoutes.countriesPage);
-                },
-                style: OutlinedButton.styleFrom(
-                  primary: Colors.black,
+                SizedBox(width: 5),
+                Flexible(
+                  child: TextFormField(
+                    focusNode: focusNode,
+                    keyboardType: TextInputType.phone,
+                    controller: controller,
+                    style: TextStyle(fontSize: 18),
+                    decoration: InputDecoration(
+                      hintText: widget.phonePlaceholder,
+                      hintStyle: TextStyle(
+                        fontSize: 18,
+                        letterSpacing: -0.2,
+                        color: Colors.grey[400],
+                      ),
+                      border: OutlineInputBorder(),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Colors.grey[300], width: 1.0),
+                        borderRadius: BorderRadius.circular(3.0),
+                      ),
+                    ),
+                    inputFormatters: [widget.formatter],
+                  ),
                 ),
-              ),
+              ],
             ),
-            SizedBox(height: 10),
-            TextFormField(
-              focusNode: focusNode,
-              keyboardType: TextInputType.phone,
-              controller: controller,
-              style: TextStyle(fontSize: 18),
-              decoration: InputDecoration(
-                hintText: 'Phone number',
-                hintStyle: TextStyle(
-                  fontSize: 18,
-                  letterSpacing: -0.2,
-                  color: Colors.grey[400],
-                ),
-                border: OutlineInputBorder(),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.grey[300], width: 1.0),
-                  borderRadius: BorderRadius.circular(3.0),
-                ),
-              ),
-              inputFormatters: [widget.formatter],
-            ),
-            SizedBox(height: 15),
+            SizedBox(height: 25),
             SizedBox(
               width: double.infinity,
               child: CustomElevatedButton(
                 title: "Continue",
-                onPressed: () => widget.canSubmit ? widget.onSubmit : null,
+                onPressed: widget.canSubmit ? widget.onSubmit : null,
               ),
             ),
-            if (widget.errorText != null)
-              Padding(
-                padding: EdgeInsets.only(top: 45.0),
-                child: Text(
-                  widget.errorText,
-                  style: TextStyle(color: Colors.red, fontSize: 16),
-                ),
-              ),
+            if (widget.errorText != null) ErrorText(message: widget.errorText),
             SizedBox(height: 30),
           ]),
         ),

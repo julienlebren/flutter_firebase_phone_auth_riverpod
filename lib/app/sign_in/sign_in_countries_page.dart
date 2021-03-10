@@ -10,29 +10,22 @@ class CountriesPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Country / Region"),
-        backgroundColor: Colors.blue,
-        elevation: 1,
       ),
       body: Consumer(
         builder: (context, watch, child) {
           final authService = context.read(authServiceProvider);
-          return ListView.builder(
+          return ListView.separated(
             itemCount: authService.countries.length,
+            separatorBuilder: (_, __) => Padding(
+              padding: EdgeInsets.only(left: 15.0),
+              child: Divider(
+                color: Colors.grey[400],
+                height: 0.5,
+              ),
+            ),
             itemBuilder: (BuildContext context, int index) {
               final country = authService.countries[index];
-              final isSelected =
-                  (authService.countryCode == country.countryCode);
-              return Theme(
-                data: ThemeData(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.grey[200],
-                ),
-                child: _countryListTile(
-                  context: context,
-                  country: country,
-                  isSelected: isSelected,
-                ),
-              );
+              return _countryListTile(context: context, country: country);
             },
           );
         },
@@ -40,33 +33,20 @@ class CountriesPage extends StatelessWidget {
     );
   }
 
-  Widget _countryListTile({
-    BuildContext context,
-    @required CountryWithPhoneCode country,
-    isSelected = false,
-  }) {
+  Widget _countryListTile(
+      {BuildContext context, @required CountryWithPhoneCode country}) {
     return ListTile(
       dense: true,
-      title: Row(
-        children: <Widget>[
-          Text(
-            '${country.countryName}',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-                fontSize: 16.0, letterSpacing: -0.2, color: Colors.black),
-          ),
-          SizedBox(width: 5),
-          Text(
-            '(+${country.phoneCode})',
-            textAlign: TextAlign.left,
-            style: TextStyle(
-                fontSize: 16.0, letterSpacing: -0.2, color: Colors.grey),
-          ),
-        ],
+      title: Text(
+        '${country.countryName}',
+        textAlign: TextAlign.left,
+        style: TextStyle(fontSize: 16.0, color: Colors.black),
       ),
-      trailing: isSelected
-          ? Icon(Icons.check, color: Colors.blueAccent)
-          : SizedBox.shrink(),
+      trailing: Text(
+        '+${country.phoneCode}',
+        textAlign: TextAlign.left,
+        style: TextStyle(fontSize: 16.0, color: Colors.grey),
+      ),
       onTap: () {
         final authService = context.read(authServiceProvider);
         authService.setCountry(country);
