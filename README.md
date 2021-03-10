@@ -1,4 +1,5 @@
 [![@hikeland](https://img.shields.io/twitter/follow/hikeland?label=Hikeland&style=social)](https://twitter.com/hikeland)
+[https://dart.dev/](https://img.shields.io/badge/Dart-2.0-blue)
 
 # Flutter Firebase Phone Auth with Riverpod
 
@@ -88,7 +89,7 @@ The main goal of this sample project is to learn how to use Riverpod for this ki
 
 I used several of the providers available in the Riverpod package because I know that the large number of providers available tends to confuse a bit the Riverpod novices.
 
-### In the `lib/global_providers.dart` you can find three providers:
+### In `global_providers.dart` you can find three providers:
 
 ```dart
 final authServiceProvider = Provider<AuthService>((ref) => AuthService());
@@ -106,7 +107,7 @@ final authStateChangesProvider = StreamProvider<User>(
 - `authStateProvider` is intended to observe the state of `AuthService`, this is why we use here a **StateNotifierProvider**.
 - `authStateChangesProvider` uses a **StreamProvider** because it observes the `User` changes from **FirebaseAuth** which is a **Stream**.
 
-### In the `lib/app/sign_in/sign_in_phone_page.dart` you can find two providers:
+### In `app/sign_in/sign_in_phone_page.dart` you can find two providers:
 
 ```dart
 final signInPhoneModelProvider = StateNotifierProvider.autoDispose<SignInPhoneModel>((ref) {
@@ -128,7 +129,7 @@ final selectedCountryProvider = Provider.autoDispose<CountryWithPhoneCode>((ref)
 - `signInPhoneModelProvider` uses a **StateNotifierProvider** because we observe the state of `SignInPhoneModel` (which returns a `SignInState`)
 - `selectedCountryProvider` uses a **Provider** because it's just here to provider a value of `CountryWithPhoneCode` obtained in the state of `AuthService`.
 
-### In the `lib/app/sign_in/sign_in_verification_page.dart` you can find two providers:
+### In `app/sign_in/sign_in_verification_page.dart` you can find two providers:
 
 ```dart
 final signInVerificationModelProvider =
@@ -148,7 +149,7 @@ final countdownProvider = StreamProvider.autoDispose<int>((ref) {
 - `signInVerificationModelProvider` uses a **StateNotifierProvider** for the same reasons as `signInPhoneModelProvider`.
 - `countdownProvider` uses a **StreamProvider** because it observes a countdown which is updated from a **StreamController** inside the `SignInVerificationModel`.
 
-### In the `lib/app/home/home_page.dart` you can find one provider:
+### In `app/home/home_page.dart` you can find one provider:
 
 ```dart
 final phoneNumberProvider = Provider.autoDispose<String>((ref) {
@@ -162,6 +163,7 @@ final phoneNumberProvider = Provider.autoDispose<String>((ref) {
 ## Credits
 
 This sample app is an extract from [Beebop](https://beebop.school/), an app that I'm currently writing and that will be available in the next months on the App Store and Google Play.
-Feel free to ask me your questions on [Twitter](https://twitter.com/hikeland).
+
+If you have questions, feel free to ask on [Twitter](https://twitter.com/hikeland).
 
 ## [LICENSE: MIT](LICENSE.md)
