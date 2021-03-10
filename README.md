@@ -6,7 +6,7 @@ This example project shows how to set up a Firebase Phone Auth in Flutter with R
 
 This reference project shows how to implement a (Netflix-inspired) movie app with different state management techniques in Flutter:
 
-![App preview 1](media/screenshot1.png) ![App preview 2](media/screenshot2.png) ![App preview 3](media/screenshot3.png)
+![App preview](media/screenshots.png)
 
 
 
