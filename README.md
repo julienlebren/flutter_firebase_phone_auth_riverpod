@@ -26,13 +26,17 @@ When the verification code is approved, the user is moved to a home page with a 
 ### Phone number request 
 
 On this screen, the user is asked to type his phone number. His country has been automatically detected by the app but he can change it by typing the country code, which open a new screen with all the countries available and their phone code.
+
 The phone number is automatically formatted and verified as it is entered, filling spaces and dashes when needed. An error is displayed if the phone number is not a mobile number.
+
 When the phone number is detected as valid, the "Continue" button is enabled.
 
 ### Verification code request
 
 This screen displays a TextField where the user is asked to type the verification code. Since we know that Firebase verification codes is 6-digit, the TextField is formatted to fit this structure.
+
 There is no validation button on this screen because the TextField autovalidates the code when it reaches the 6th number.
+
 The user can request a new verification code on this screen, but only after a delay, to avoid repeated requests. 
 
 ## Third party librairies
@@ -66,7 +70,9 @@ Then inside `lib` you will find:
 - `app` with all the app stuff, with more details below.
 
 All widgets which are used more than once are stored in `app/common_widgets`, for example the blue ElevatedButton.
+
 All routes of the app are stored in `app/routing`.
+
 Every single part of the app has its own folder, for this very simple app, it only has two: `app/home` and `app/sign_in`.
 
 `app/sign_in` contains the sign in screens but also what we could call the view models.
@@ -77,7 +83,7 @@ The main goal of this sample project is to learn how to use Riverpod for this ki
 
 I used several of the providers available in the Riverpod package because I know that the large number of providers available tends to confuse a bit the Riverpod novices.
 
-In the `lib/global_providers.dart` you can find three providers:
+### In the `lib/global_providers.dart` you can find three providers:
 
 ```dart
 final authServiceProvider = Provider<AuthService>((ref) => AuthService());
@@ -91,11 +97,11 @@ final authStateChangesProvider = StreamProvider<User>(
     (ref) => ref.watch(authServiceProvider).authStateChanges());
 ```
 
-`authServiceProvider` uses a simple **Provider** because its goal is to access the `AuthService` methods from everywhere, it is not intended to observe the state of `AuthService`.
-`authStateProvider` is intended to observe the state of `AuthService`, this is why we use here a **StateNotifierProvider**.
-`authStateChangesProvider` uses a **StreamProvider** because it observes the `User` changes from **FirebaseAuth** which is a **Stream**.
+- `authServiceProvider` uses a simple **Provider** because its goal is to access the `AuthService` methods from everywhere, it is not intended to observe the state of `AuthService`.
+- `authStateProvider` is intended to observe the state of `AuthService`, this is why we use here a **StateNotifierProvider**.
+- `authStateChangesProvider` uses a **StreamProvider** because it observes the `User` changes from **FirebaseAuth** which is a **Stream**.
 
-In the `lib/app/sign_in/sign_in_phone_page.dart` you can find two providers:
+### In the `lib/app/sign_in/sign_in_phone_page.dart` you can find two providers:
 
 ```dart
 final signInPhoneModelProvider = StateNotifierProvider.autoDispose<SignInPhoneModel>((ref) {
@@ -114,10 +120,10 @@ final selectedCountryProvider = Provider.autoDispose<CountryWithPhoneCode>((ref)
 });
 ```
 
-`signInPhoneModelProvider` uses a **StateNotifierProvider** because we observe the state of `SignInPhoneModel` (which returns a `SignInState`)
-`selectedCountryProvider` uses a **Provider** because it's just here to provider a value of `CountryWithPhoneCode` obtained in the state of `AuthService`.
+- `signInPhoneModelProvider` uses a **StateNotifierProvider** because we observe the state of `SignInPhoneModel` (which returns a `SignInState`)
+- `selectedCountryProvider` uses a **Provider** because it's just here to provider a value of `CountryWithPhoneCode` obtained in the state of `AuthService`.
 
-In the `lib/app/sign_in/sign_in_verification_page.dart` you can find two providers:
+### In the `lib/app/sign_in/sign_in_verification_page.dart` you can find two providers:
 
 ```dart
 final signInVerificationModelProvider =
@@ -134,10 +140,10 @@ final countdownProvider = StreamProvider.autoDispose<int>((ref) {
 });
 ```
 
-`signInVerificationModelProvider` uses a **StateNotifierProvider** for the same reasons as `signInPhoneModelProvider`.
-`countdownProvider` uses a **StreamProvider** because it observes a countdown which is updated from a **StreamController** inside the `SignInVerificationModel`.
+- `signInVerificationModelProvider` uses a **StateNotifierProvider** for the same reasons as `signInPhoneModelProvider`.
+- `countdownProvider` uses a **StreamProvider** because it observes a countdown which is updated from a **StreamController** inside the `SignInVerificationModel`.
 
-In the `lib/app/home/home_page.dart` you can find one provider:
+### In the `lib/app/home/home_page.dart` you can find one provider:
 
 ```dart
 final phoneNumberProvider = Provider.autoDispose<String>((ref) {
@@ -146,7 +152,7 @@ final phoneNumberProvider = Provider.autoDispose<String>((ref) {
 });
 ```
 
-`phoneNumberProvider` uses a **Provider** because it's just here to provider string value obtained from the instance of `AuthService`.
+- `phoneNumberProvider` uses a **Provider** because it's just here to provider string value obtained from the instance of `AuthService`.
 
 ## Credits
 
