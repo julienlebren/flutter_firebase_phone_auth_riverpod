@@ -4,7 +4,7 @@
 
 # Flutter Firebase Phone Auth with Riverpod
 
-This example project shows how to set up a Firebase Phone Auth in Flutter with Riverpod for its state management
+This example project shows how to set up a Firebase Phone Auth in Flutter with Riverpod for its state management 
 
 ![App preview](media/app-screenshots.png)
 
