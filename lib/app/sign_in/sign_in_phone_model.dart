@@ -23,7 +23,6 @@ class SignInPhoneModel extends StateNotifier<SignInState> {
   Future<void> _parsePhoneNumber(String inputText) async {
     try {
       await authService.parsePhoneNumber(inputText);
-      print("Phone number is valid, state set to 'canSubmit'");
       state = SignInState.canSubmit();
     } catch (e) {
       if (!e.message.contains('parse')) {
@@ -35,7 +34,6 @@ class SignInPhoneModel extends StateNotifier<SignInState> {
   }
 
   Future<void> verifyPhone() async {
-    print("Verifying phone number...");
     state = SignInState.loading();
     try {
       authService.verifyPhone(() {
