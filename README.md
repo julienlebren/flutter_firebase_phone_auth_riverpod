@@ -11,6 +11,11 @@ This example project shows how to set up a Firebase Phone Auth in Flutter with R
 You will need to setup [Firebase](https://console.firebase.com) and add the **GoogleService-Info.plist** to the iOS project and **google-services.json** to the Android project.
 Don't forget to enable **Phone Authentication** on your Firebase project.
 
+This app uses **Freezed**, a package which generates some code. In order to generate it, just type this command in your Terminal:
+```
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
 ## App Overview
 
 The app displays a landing screen when the user is not authenticated.
