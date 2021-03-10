@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         textTheme: TextTheme(
           headline6: TextStyle(fontSize: 20.0),
+          caption: TextStyle(color: Colors.grey, fontSize: 16),
         ),
       ),
       onGenerateRoute: (settings) => AppRouter.onGenerateRoute(settings),
