@@ -14,9 +14,13 @@ Don't forget to enable **Phone Authentication** on your Firebase project.
 ## App Overview
 
 The app displays a landing screen when the user is not authenticated.
+
 Then the user can move to a sign-in flow with phone authentication, where he can select his country to get the right phone code.
+
 When the verification code is sent, the user is moved to a new screen requesting the verification code. 
+
 A countdown is displayed before the user can make a new verification code request, to avoid excessive requests.
+
 When the verification code is approved, the user is moved to a home page with a logout button.
 
 ### Phone number request 
