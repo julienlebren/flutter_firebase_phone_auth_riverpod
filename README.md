@@ -14,7 +14,7 @@ Don't forget to enable **Phone Authentication** on your Firebase project.
 This app uses **Freezed**, a package which generates some code. In order to generate it, just type this command in your Terminal:
 ```
 flutter pub run build_runner build --delete-conflicting-outputs
-```
+``` 
 
 ## App Overview
 
