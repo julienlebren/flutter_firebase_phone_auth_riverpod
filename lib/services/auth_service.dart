@@ -55,8 +55,9 @@ class AuthService extends StateNotifier<AuthState> {
   }
 
   Future<void> parsePhoneNumber(String inputText) async {
+    print("parsing $inputText // ${_selectedCountry.phoneCode}${inputText}");
     _phoneNumber = await FlutterLibphonenumber().parse(
-      "+${_selectedCountry.phoneCode}${onlyDigits(inputText)}",
+      "+${_selectedCountry.phoneCode}${inputText}",
       region: _selectedCountry?.countryCode,
     );
     if (_phoneNumber['type'] != 'mobile') {
