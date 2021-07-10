@@ -95,7 +95,7 @@ I used several of the providers available in the Riverpod package because I know
 ```dart
 final authServiceProvider = Provider<AuthService>((ref) => AuthService());
 
-final authStateProvider = StateNotifierProvider<AuthService>((ref) {
+final authStateProvider = StateNotifierProvider<AuthService, AuthState>((ref) {
   final authService = ref.watch(authServiceProvider);
   return authService;
 });
@@ -111,7 +111,7 @@ final authStateChangesProvider = StreamProvider<User>(
 ### In `app/sign_in/sign_in_phone_page.dart` you can find two providers:
 
 ```dart
-final signInPhoneModelProvider = StateNotifierProvider.autoDispose<SignInPhoneModel>((ref) {
+final signInPhoneModelProvider = StateNotifierProvider.autoDispose<SignInPhoneModel, SignInState>((ref) {
   final authService = ref.watch(authServiceProvider);
   return SignInPhoneModel(
     authService: authService,
@@ -134,7 +134,7 @@ final selectedCountryProvider = Provider.autoDispose<CountryWithPhoneCode>((ref)
 
 ```dart
 final signInVerificationModelProvider =
-    StateNotifierProvider.autoDispose<SignInVerificationModel>((ref) {
+    StateNotifierProvider.autoDispose<SignInVerificationModel, SignInState>((ref) {
   final authService = ref.watch(authServiceProvider);
   return SignInVerificationModel(
     authService: authService,
