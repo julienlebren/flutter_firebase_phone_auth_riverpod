@@ -9,7 +9,7 @@ import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final signInPhoneModelProvider =
-    StateNotifierProvider.autoDispose<SignInPhoneModel>((ref) {
+    StateNotifierProvider.autoDispose<SignInPhoneModel, SignInState>((ref) {
   final authService = ref.watch(authServiceProvider);
   return SignInPhoneModel(
     authService: authService,
@@ -18,7 +18,7 @@ final signInPhoneModelProvider =
 
 final selectedCountryProvider =
     Provider.autoDispose<CountryWithPhoneCode>((ref) {
-  final authState = ref.watch(authStateProvider.state);
+  final authState = ref.watch(authStateProvider);
   return authState.maybeWhen(
     ready: (selectedCountry) => selectedCountry,
     orElse: () => null,
@@ -34,7 +34,7 @@ class SignInPhonePageBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProviderListener<SignInState>(
-      provider: signInPhoneModelProvider.state,
+      provider: signInPhoneModelProvider,
       onChange: (context, state) async {
         if (state == SignInState.success()) {
           await _openVerification(context);
@@ -42,9 +42,9 @@ class SignInPhonePageBuilder extends StatelessWidget {
       },
       child: Consumer(
         builder: (context, watch, child) {
-          final state = watch(signInPhoneModelProvider.state);
+          final state = watch(signInPhoneModelProvider);
           final selectedCountry = watch(selectedCountryProvider);
-          final model = context.read(signInPhoneModelProvider);
+          final model = context.read(signInPhoneModelProvider.notifier);
           return SignInPhonePage(
             phoneCode: '+${selectedCountry.phoneCode}',
             phonePlaceholder: selectedCountry.exampleNumberMobileInternational

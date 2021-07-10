@@ -23,11 +23,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_auth: ^0.20.1
-  firebase_core: ^0.7.0
-  flutter_libphonenumber: ^0.3.11
-  freezed_annotation: ^0.12.0
-  flutter_riverpod: ^0.12.3
+  firebase_auth: ^2.0.0
+  firebase_core: ^1.3.0
+  flutter_libphonenumber: ^1.1.0
+  flutter_riverpod: ^0.14.0+3
+  freezed_annotation: ^0.14.2
   pinput: ^1.0.0
 
 
@@ -38,8 +38,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.10.13
-  freezed: ^0.12.7
+  build_runner: ^2.0.5
+  freezed: ^0.14.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

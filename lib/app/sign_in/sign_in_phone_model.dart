@@ -15,7 +15,7 @@ class SignInPhoneModel extends StateNotifier<SignInState> {
     return LibPhonenumberTextFormatter(
       phoneNumberType: PhoneNumberType.mobile,
       phoneNumberFormat: PhoneNumberFormat.international,
-      overrideSkipCountryCode: authService.countryCode,
+      country: authService.selectedCountry,
       onFormatFinished: (inputText) async => _parsePhoneNumber(inputText),
     );
   }

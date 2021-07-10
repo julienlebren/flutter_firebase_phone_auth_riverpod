@@ -9,7 +9,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pinput/pin_put/pin_put.dart';
 
 final signInVerificationModelProvider =
-    StateNotifierProvider.autoDispose<SignInVerificationModel>((ref) {
+    StateNotifierProvider.autoDispose<SignInVerificationModel, SignInState>(
+        (ref) {
   final authService = ref.watch(authServiceProvider);
   return SignInVerificationModel(
     authService: authService,
@@ -17,7 +18,8 @@ final signInVerificationModelProvider =
 });
 
 final countdownProvider = StreamProvider.autoDispose<int>((ref) {
-  final signInVerificationModel = ref.watch(signInVerificationModelProvider);
+  final signInVerificationModel =
+      ref.watch(signInVerificationModelProvider.notifier);
   return signInVerificationModel.countdown.stream;
 });
 
@@ -25,7 +27,7 @@ class SignInVerificationPageBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ProviderListener<SignInState>(
-      provider: signInVerificationModelProvider.state,
+      provider: signInVerificationModelProvider,
       onChange: (context, state) async {
         if (state == SignInState.success()) {
           Navigator.popUntil(
@@ -34,9 +36,9 @@ class SignInVerificationPageBuilder extends StatelessWidget {
       },
       child: Consumer(
         builder: (context, watch, child) {
-          final state = watch(signInVerificationModelProvider.state);
+          final state = watch(signInVerificationModelProvider);
           final countdown = watch(countdownProvider);
-          final model = context.read(signInVerificationModelProvider);
+          final model = context.read(signInVerificationModelProvider.notifier);
           return SignInVerificationPage(
             phoneNumber: model.formattedPhoneNumber,
             resendCode: () => model.resendCode(),

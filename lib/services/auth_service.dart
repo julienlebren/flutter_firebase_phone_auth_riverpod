@@ -1,3 +1,4 @@
+import 'dart:ui' as ui;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/state/auth_state.dart';
 import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
@@ -16,7 +17,7 @@ class AuthService extends StateNotifier<AuthState> {
   List<CountryWithPhoneCode> countries = [];
 
   Stream<User> authStateChanges() => _firebaseAuth.authStateChanges();
-  String get countryCode => _selectedCountry.countryCode;
+  CountryWithPhoneCode get selectedCountry => _selectedCountry;
   String get phoneCode => _selectedCountry.phoneCode;
   String get formattedPhoneNumber => _phoneNumber['international'];
 
@@ -31,7 +32,7 @@ class AuthService extends StateNotifier<AuthState> {
       });
       countries = _countries;
 
-      final langCode = CountryManager().deviceLocaleCountryCode.toUpperCase();
+      final langCode = ui.window.locale.languageCode.toUpperCase();
       _firebaseAuth.setLanguageCode(langCode);
 
       var filteredCountries =
