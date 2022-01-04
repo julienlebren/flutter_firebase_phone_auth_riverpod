@@ -25,47 +25,42 @@ final selectedCountryProvider =
   );
 });
 
-class SignInPhonePageBuilder extends StatelessWidget {
+class SignInPhonePageBuilder extends ConsumerWidget {
   Future<void> _openVerification(BuildContext context) async {
     final navigator = Navigator.of(context);
     await navigator.pushNamed(AppRoutes.signInVerificationPage);
   }
 
   @override
-  Widget build(BuildContext context) {
-    return ProviderListener<SignInState>(
-      provider: signInPhoneModelProvider,
-      onChange: (context, state) async {
-        if (state == SignInState.success()) {
-          await _openVerification(context);
-        }
-      },
-      child: Consumer(
-        builder: (context, watch, child) {
-          final state = watch(signInPhoneModelProvider);
-          final selectedCountry = watch(selectedCountryProvider);
-          final model = context.read(signInPhoneModelProvider.notifier);
-          return SignInPhonePage(
-            phoneCode: '+${selectedCountry.phoneCode}',
-            phonePlaceholder: selectedCountry.exampleNumberMobileInternational
-                .replaceAll('+${selectedCountry.phoneCode} ', ''),
-            formatter: model.phoneNumberFormatter,
-            onSubmit: model.verifyPhone,
-            canSubmit: state.maybeWhen(
-              canSubmit: () => true,
-              success: () => true,
-              orElse: () => false,
-            ),
-            isLoading: state.maybeWhen(
-              loading: () => true,
-              orElse: () => false,
-            ),
-            errorText: state.maybeWhen(
-              error: (error) => error,
-              orElse: () => null,
-            ),
-          );
-        },
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<SignInState>(signInPhoneModelProvider, (_, state) {
+      if (state == SignInState.success()) {
+        _openVerification(context);
+      }
+    });
+
+    final state = ref.watch(signInPhoneModelProvider);
+    final selectedCountry = ref.watch(selectedCountryProvider);
+    final model = ref.read(signInPhoneModelProvider.notifier);
+
+    return SignInPhonePage(
+      phoneCode: '+${selectedCountry.phoneCode}',
+      phonePlaceholder: selectedCountry.exampleNumberMobileInternational
+          .replaceAll('+${selectedCountry.phoneCode} ', ''),
+      formatter: model.phoneNumberFormatter,
+      onSubmit: model.verifyPhone,
+      canSubmit: state.maybeWhen(
+        canSubmit: () => true,
+        success: () => true,
+        orElse: () => false,
+      ),
+      isLoading: state.maybeWhen(
+        loading: () => true,
+        orElse: () => false,
+      ),
+      errorText: state.maybeWhen(
+        error: (error) => error,
+        orElse: () => null,
       ),
     );
   }
@@ -77,10 +72,10 @@ class SignInPhonePage extends StatefulWidget {
     this.canSubmit = false,
     this.isLoading = false,
     this.errorText,
-    @required this.phoneCode,
-    @required this.phonePlaceholder,
-    @required this.formatter,
-    @required this.onSubmit,
+    this.phoneCode,
+    this.phonePlaceholder,
+    this.formatter,
+    this.onSubmit,
   }) : super(key: key);
 
   final LibPhonenumberTextFormatter formatter;

@@ -12,8 +12,8 @@ class CountriesPage extends StatelessWidget {
         title: Text("Country / Region"),
       ),
       body: Consumer(
-        builder: (context, watch, child) {
-          final authService = context.read(authServiceProvider);
+        builder: (context, ref, _) {
+          final authService = ref.read(authServiceProvider);
           return ListView.separated(
             itemCount: authService.countries.length,
             separatorBuilder: (_, __) => Padding(
@@ -25,7 +25,7 @@ class CountriesPage extends StatelessWidget {
             ),
             itemBuilder: (BuildContext context, int index) {
               final country = authService.countries[index];
-              return _countryListTile(context: context, country: country);
+              return _countryListTile(context, ref, country);
             },
           );
         },
@@ -34,7 +34,10 @@ class CountriesPage extends StatelessWidget {
   }
 
   Widget _countryListTile(
-      {BuildContext context, @required CountryWithPhoneCode country}) {
+    BuildContext context,
+    WidgetRef ref,
+    CountryWithPhoneCode country,
+  ) {
     return ListTile(
       dense: true,
       title: Text(
@@ -48,7 +51,7 @@ class CountriesPage extends StatelessWidget {
         style: TextStyle(fontSize: 16.0, color: Colors.grey),
       ),
       onTap: () {
-        final authService = context.read(authServiceProvider);
+        final authService = ref.read(authServiceProvider);
         authService.setCountry(country);
         Navigator.pop(context);
       },

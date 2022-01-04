@@ -38,8 +38,8 @@ class MyApp extends StatelessWidget {
 
 class StartupPage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final authStateChanges = watch(authStateChangesProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authStateChanges = ref.watch(authStateChangesProvider);
     return authStateChanges.when(
       data: (user) {
         if (user != null) {

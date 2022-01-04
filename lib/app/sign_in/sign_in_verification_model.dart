@@ -8,7 +8,7 @@ final delayBeforeUserCanRequestNewCode = 30;
 
 class SignInVerificationModel extends StateNotifier<SignInState> {
   SignInVerificationModel({
-    @required this.authService,
+    this.authService,
   }) : super(const SignInState.notValid()) {
     _startTimer();
   }

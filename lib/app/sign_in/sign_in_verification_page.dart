@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/buttons.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/error_text.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/routing/app_router.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_verification_model.dart';
@@ -23,42 +22,39 @@ final countdownProvider = StreamProvider.autoDispose<int>((ref) {
   return signInVerificationModel.countdown.stream;
 });
 
-class SignInVerificationPageBuilder extends StatelessWidget {
+class SignInVerificationPageBuilder extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
-    return ProviderListener<SignInState>(
-      provider: signInVerificationModelProvider,
-      onChange: (context, state) async {
-        if (state == SignInState.success()) {
-          Navigator.popUntil(
-              context, ModalRoute.withName(AppRoutes.startupPage));
-        }
-      },
-      child: Consumer(
-        builder: (context, watch, child) {
-          final state = watch(signInVerificationModelProvider);
-          final countdown = watch(countdownProvider);
-          final model = context.read(signInVerificationModelProvider.notifier);
-          return SignInVerificationPage(
-            phoneNumber: model.formattedPhoneNumber,
-            resendCode: () => model.resendCode(),
-            verifyCode: (String smsCode) => model.verifyCode(smsCode),
-            delayBeforeNewCode:
-                (countdown.data?.value ?? delayBeforeUserCanRequestNewCode),
-            canSubmit: state.maybeWhen(
-              canSubmit: () => true,
-              orElse: () => false,
-            ),
-            isLoading: state.maybeWhen(
-              loading: () => true,
-              orElse: () => false,
-            ),
-            errorText: state.maybeWhen(
-              error: (error) => error,
-              orElse: () => null,
-            ),
-          );
-        },
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<SignInState>(signInVerificationModelProvider, (_, state) {
+      if (state == SignInState.success()) {
+        Navigator.popUntil(
+          context,
+          ModalRoute.withName(AppRoutes.startupPage),
+        );
+      }
+    });
+
+    final state = ref.watch(signInVerificationModelProvider);
+    final countdown = ref.watch(countdownProvider);
+    final model = ref.read(signInVerificationModelProvider.notifier);
+
+    return SignInVerificationPage(
+      phoneNumber: model.formattedPhoneNumber,
+      resendCode: () => model.resendCode(),
+      verifyCode: (String smsCode) => model.verifyCode(smsCode),
+      delayBeforeNewCode:
+          (countdown.data?.value ?? delayBeforeUserCanRequestNewCode),
+      canSubmit: state.maybeWhen(
+        canSubmit: () => true,
+        orElse: () => false,
+      ),
+      isLoading: state.maybeWhen(
+        loading: () => true,
+        orElse: () => false,
+      ),
+      errorText: state.maybeWhen(
+        error: (error) => error,
+        orElse: () => null,
       ),
     );
   }
@@ -67,13 +63,13 @@ class SignInVerificationPageBuilder extends StatelessWidget {
 class SignInVerificationPage extends StatefulWidget {
   const SignInVerificationPage({
     Key key,
-    @required this.phoneNumber,
+    this.phoneNumber,
     this.canSubmit = false,
     this.isLoading = false,
     this.errorText,
     this.delayBeforeNewCode,
-    @required this.resendCode,
-    @required this.verifyCode,
+    this.resendCode,
+    this.verifyCode,
   }) : super(key: key);
 
   final String phoneNumber;

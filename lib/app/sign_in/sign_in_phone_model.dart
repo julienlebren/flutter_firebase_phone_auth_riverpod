@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SignInPhoneModel extends StateNotifier<SignInState> {
   SignInPhoneModel({
-    @required this.authService,
+    this.authService,
   }) : super(const SignInState.notValid());
 
   AuthService authService;

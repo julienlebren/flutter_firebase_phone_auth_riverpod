@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/app/common_widgets/buttons.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/global_providers.dart';
@@ -11,8 +10,8 @@ final phoneNumberProvider = Provider.autoDispose<String>((ref) {
 
 class HomePage extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, ScopedReader watch) {
-    final phoneNumber = watch(phoneNumberProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final phoneNumber = ref.watch(phoneNumberProvider);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -60,7 +59,7 @@ class HomePage extends ConsumerWidget {
               child: CustomElevatedButton(
                   title: "Sign out",
                   onPressed: () {
-                    final authService = context.read(authServiceProvider);
+                    final authService = ref.read(authServiceProvider);
                     authService.signOut();
                   }),
             ),
