@@ -10,7 +10,6 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   Widget build(BuildContext context) {
-    print("$title onPressed: $onPressed");
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(

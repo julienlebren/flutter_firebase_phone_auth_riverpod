@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/services/auth_service.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/state/sign_in_state.dart';
 import 'package:flutter_libphonenumber/flutter_libphonenumber.dart';
@@ -25,6 +24,7 @@ class SignInPhoneModel extends StateNotifier<SignInState> {
       await authService.parsePhoneNumber(inputText);
       state = SignInState.canSubmit();
     } catch (e) {
+      print(e.toString());
       if (!e.message.contains('parse')) {
         state = SignInState.error(e.message);
       } else {

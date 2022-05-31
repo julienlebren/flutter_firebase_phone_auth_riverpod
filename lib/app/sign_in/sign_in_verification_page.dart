@@ -5,7 +5,7 @@ import 'package:flutter_firebase_phone_auth_riverpod/app/sign_in/sign_in_verific
 import 'package:flutter_firebase_phone_auth_riverpod/global_providers.dart';
 import 'package:flutter_firebase_phone_auth_riverpod/state/sign_in_state.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pinput/pin_put/pin_put.dart';
+import 'package:pinput/pinput.dart';
 
 final signInVerificationModelProvider =
     StateNotifierProvider.autoDispose<SignInVerificationModel, SignInState>(
@@ -42,8 +42,7 @@ class SignInVerificationPageBuilder extends ConsumerWidget {
       phoneNumber: model.formattedPhoneNumber,
       resendCode: () => model.resendCode(),
       verifyCode: (String smsCode) => model.verifyCode(smsCode),
-      delayBeforeNewCode:
-          (countdown.data?.value ?? delayBeforeUserCanRequestNewCode),
+      delayBeforeNewCode: (countdown.value ?? delayBeforeUserCanRequestNewCode),
       canSubmit: state.maybeWhen(
         canSubmit: () => true,
         orElse: () => false,
@@ -97,6 +96,19 @@ class _SignInVerificationPageState extends State<SignInVerificationPage> {
 
   @override
   Widget build(BuildContext context) {
+    final defaultPinTheme = PinTheme(
+      textStyle: TextStyle(fontSize: 40),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.grey[300]),
+        borderRadius: BorderRadius.circular(5),
+      ),
+    );
+
+    final focusedPinTheme = defaultPinTheme.copyDecorationWith(
+      border: Border.all(color: Colors.blue),
+      borderRadius: BorderRadius.circular(5),
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -117,26 +129,20 @@ class _SignInVerificationPageState extends State<SignInVerificationPage> {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20.0),
               padding: const EdgeInsets.all(30.0),
-              child: PinPut(
-                fieldsCount: 6,
-                textStyle: TextStyle(fontSize: 40),
+              child: Pinput(
+                defaultPinTheme: defaultPinTheme,
+                focusedPinTheme: focusedPinTheme,
+                length: 6,
                 onTap: () {
                   if (widget.errorText != null) {
                     controller.text = "";
                   }
                 },
-                onSubmit: widget.verifyCode,
+                onSubmitted: widget.verifyCode,
                 focusNode: focusNode,
                 controller: controller,
                 pinAnimationType: PinAnimationType.none,
-                submittedFieldDecoration: _pinPutDecoration.copyWith(
-                  border: Border.all(color: Colors.grey[300]),
-                ),
-                selectedFieldDecoration: _pinPutDecoration.copyWith(
-                  border: Border.all(color: Colors.blue),
-                ),
-                followingFieldDecoration: _pinPutDecoration,
-                autovalidateMode: AutovalidateMode.disabled,
+                pinputAutovalidateMode: PinputAutovalidateMode.disabled,
                 validator: (s) {
                   if (widget.errorText == null && s.length == 6)
                     widget.verifyCode(s);
@@ -158,13 +164,6 @@ class _SignInVerificationPageState extends State<SignInVerificationPage> {
           ]),
         ),
       ),
-    );
-  }
-
-  BoxDecoration get _pinPutDecoration {
-    return BoxDecoration(
-      border: Border.all(color: Colors.grey[300]),
-      borderRadius: BorderRadius.circular(5.0),
     );
   }
 }

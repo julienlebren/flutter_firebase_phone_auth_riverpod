@@ -1,67 +1,70 @@
 PODS:
-  - Firebase/Auth (8.9.0):
+  - Firebase/Auth (8.15.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 8.9.0)
-  - Firebase/CoreOnly (8.9.0):
-    - FirebaseCore (= 8.9.0)
-  - firebase_auth (3.3.4):
-    - Firebase/Auth (= 8.9.0)
+    - FirebaseAuth (~> 8.15.0)
+  - Firebase/CoreOnly (8.15.0):
+    - FirebaseCore (= 8.15.0)
+  - firebase_auth (3.3.19):
+    - Firebase/Auth (= 8.15.0)
     - firebase_core
     - Flutter
-  - firebase_core (1.10.6):
-    - Firebase/CoreOnly (= 8.9.0)
+  - firebase_core (1.17.1):
+    - Firebase/CoreOnly (= 8.15.0)
     - Flutter
-  - FirebaseAuth (8.9.0):
+  - FirebaseAuth (8.15.0):
     - FirebaseCore (~> 8.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.6)
-    - GoogleUtilities/Environment (~> 7.6)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/Environment (~> 7.7)
     - GTMSessionFetcher/Core (~> 1.5)
-  - FirebaseCore (8.9.0):
+  - FirebaseCore (8.15.0):
     - FirebaseCoreDiagnostics (~> 8.0)
-    - GoogleUtilities/Environment (~> 7.6)
-    - GoogleUtilities/Logger (~> 7.6)
-  - FirebaseCoreDiagnostics (8.10.0):
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Logger (~> 7.7)
+  - FirebaseCoreDiagnostics (8.15.0):
     - GoogleDataTransport (~> 9.1)
-    - GoogleUtilities/Environment (~> 7.6)
-    - GoogleUtilities/Logger (~> 7.6)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Logger (~> 7.7)
     - nanopb (~> 2.30908.0)
   - Flutter (1.0.0)
   - flutter_libphonenumber (0.0.1):
     - Flutter
     - PhoneNumberKit/PhoneNumberKitCore (~> 3.3.3)
-  - GoogleDataTransport (9.1.2):
-    - GoogleUtilities/Environment (~> 7.2)
-    - nanopb (~> 2.30908.0)
+  - GoogleDataTransport (9.1.4):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/AppDelegateSwizzler (7.6.0):
+  - GoogleUtilities/AppDelegateSwizzler (7.7.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (7.6.0):
+  - GoogleUtilities/Environment (7.7.0):
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/Logger (7.6.0):
+  - GoogleUtilities/Logger (7.7.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/Network (7.6.0):
+  - GoogleUtilities/Network (7.7.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.6.0)"
-  - GoogleUtilities/Reachability (7.6.0):
+  - "GoogleUtilities/NSData+zlib (7.7.0)"
+  - GoogleUtilities/Reachability (7.7.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (1.7.0)
+  - GTMSessionFetcher/Core (1.7.2)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
-  - PhoneNumberKit/PhoneNumberKitCore (3.3.3)
-  - PromisesObjC (2.0.0)
+  - PhoneNumberKit/PhoneNumberKitCore (3.3.4)
+  - PromisesObjC (2.1.0)
+  - smart_auth (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - Flutter (from `Flutter`)
   - flutter_libphonenumber (from `.symlinks/plugins/flutter_libphonenumber/ios`)
+  - smart_auth (from `.symlinks/plugins/smart_auth/ios`)
 
 SPEC REPOS:
   trunk:
@@ -85,23 +88,26 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_libphonenumber:
     :path: ".symlinks/plugins/flutter_libphonenumber/ios"
+  smart_auth:
+    :path: ".symlinks/plugins/smart_auth/ios"
 
 SPEC CHECKSUMS:
-  Firebase: 13d8d96499e2635428d5bf0ec675df21f95d9a95
-  firebase_auth: e875a50b81aefb20f305dfede425647e9675c19e
-  firebase_core: c263d7daf1dc92fcd9895e6abdc04872b0ee07ff
-  FirebaseAuth: 2b78b2a32c07b3ecfa4970bdf1d3632b8304099b
-  FirebaseCore: 599ee609343eaf4941bd188f85e3aa077ffe325b
-  FirebaseCoreDiagnostics: 56fb7216d87e0e6ec2feddefa9d8a392fe8b2c18
+  Firebase: 5f8193dff4b5b7c5d5ef72ae54bb76c08e2b841d
+  firebase_auth: a6470a6974d42f83117932c913aecb926182f907
+  firebase_core: 318de541b0e61d3f24262982a3f0b54afe72439b
+  FirebaseAuth: 3e73bf8abf4fbb40f8b421f361f4cc48ee57388c
+  FirebaseCore: 5743c5785c074a794d35f2fff7ecc254a91e08b1
+  FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   flutter_libphonenumber: 6a23afdf063b34d1e53e6dbd6c6bc905d18e8e46
-  GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
-  GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
-  GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
+  GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
+  GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
-  PhoneNumberKit: 4ce83273551c4d2ae10b7361162f4283dd02835f
-  PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  PhoneNumberKit: 441e8b26ec88d598e3591de9061eff18f5dd12e8
+  PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
+  smart_auth: 4bedbc118723912d0e45a07e8ab34039c19e04f2
 
 PODFILE CHECKSUM: fe0e1ee7f3d1f7d00b11b474b62dd62134535aea
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

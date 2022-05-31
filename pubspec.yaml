@@ -1,7 +1,7 @@
 name: flutter_firebase_phone_auth_riverpod
 description: Using Riverpod to handle Firebase Phone Authentication
 publish_to: 'none'
-version: 1.1.0
+version: 1.2.0
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -9,19 +9,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  firebase_auth: ^3.3.4
-  firebase_core: ^1.10.6
-  flutter_libphonenumber: ^1.2.1
+  firebase_auth: ^3.3.19
+  firebase_core: ^1.17.1
+  flutter_libphonenumber: 1.1.0
   flutter_riverpod: ^1.0.3
-  freezed_annotation: ^1.1.0
-  pinput: ^1.2.2
+  freezed_annotation: ^2.0.3
+  pinput: ^2.2.9
   cupertino_icons: ^1.0.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^2.1.7
-  freezed: ^1.1.1
+  build_runner: ^2.1.11
+  flutter_lints: ^1.0.0
+  freezed: ^2.0.3+1
   
 flutter:
   uses-material-design: true
