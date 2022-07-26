@@ -17,7 +17,7 @@ final signInPhoneModelProvider =
 });
 
 final selectedCountryProvider =
-    Provider.autoDispose<CountryWithPhoneCode>((ref) {
+    Provider.autoDispose<CountryWithPhoneCode?>((ref) {
   final authState = ref.watch(authStateProvider);
   return authState.maybeWhen(
     ready: (selectedCountry) => selectedCountry,
@@ -44,7 +44,7 @@ class SignInPhonePageBuilder extends ConsumerWidget {
     final model = ref.read(signInPhoneModelProvider.notifier);
 
     return SignInPhonePage(
-      phoneCode: '+${selectedCountry.phoneCode}',
+      phoneCode: '+${selectedCountry!.phoneCode}',
       phonePlaceholder: selectedCountry.exampleNumberMobileInternational
           .replaceAll('+${selectedCountry.phoneCode} ', ''),
       formatter: model.phoneNumberFormatter,
@@ -60,7 +60,7 @@ class SignInPhonePageBuilder extends ConsumerWidget {
       ),
       errorText: state.maybeWhen(
         error: (error) => error,
-        orElse: () => null,
+        orElse: () => "Something is going on, not sure what.",
       ),
     );
   }
@@ -68,15 +68,15 @@ class SignInPhonePageBuilder extends ConsumerWidget {
 
 class SignInPhonePage extends StatefulWidget {
   const SignInPhonePage({
-    Key key,
+    super.key,
     this.canSubmit = false,
     this.isLoading = false,
-    this.errorText,
-    this.phoneCode,
-    this.phonePlaceholder,
-    this.formatter,
-    this.onSubmit,
-  }) : super(key: key);
+    required this.errorText,
+    required this.phoneCode,
+    required this.phonePlaceholder,
+    required this.formatter,
+    required this.onSubmit,
+  });
 
   final LibPhonenumberTextFormatter formatter;
   final String phoneCode;
@@ -93,6 +93,8 @@ class SignInPhonePage extends StatefulWidget {
 class _SignInPhonePageState extends State<SignInPhonePage> {
   final controller = TextEditingController();
   final focusNode = FocusNode();
+
+  void noop() {}
 
   void initState() {
     super.initState();
@@ -159,7 +161,7 @@ class _SignInPhonePageState extends State<SignInPhonePage> {
                       border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: Colors.grey[300], width: 1.0),
+                            BorderSide(color: (Colors.grey[300])!, width: 1.0),
                         borderRadius: BorderRadius.circular(3.0),
                       ),
                     ),
@@ -173,7 +175,7 @@ class _SignInPhonePageState extends State<SignInPhonePage> {
               width: double.infinity,
               child: CustomElevatedButton(
                 title: "Continue",
-                onPressed: widget.canSubmit ? widget.onSubmit : null,
+                onPressed: widget.canSubmit ? widget.onSubmit : noop,
               ),
             ),
             if (widget.errorText != null) ErrorText(message: widget.errorText),
