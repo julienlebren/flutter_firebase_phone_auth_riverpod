@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SignInPhoneModel extends StateNotifier<SignInState> {
   SignInPhoneModel({
-    this.authService,
+    required this.authService,
   }) : super(const SignInState.notValid());
 
   AuthService authService;
@@ -23,10 +23,10 @@ class SignInPhoneModel extends StateNotifier<SignInState> {
     try {
       await authService.parsePhoneNumber(inputText);
       state = SignInState.canSubmit();
-    } catch (e) {
+    } on Exception catch (e) {
       print(e.toString());
-      if (!e.message.contains('parse')) {
-        state = SignInState.error(e.message);
+      if (!e.toString().contains('parse')) {
+        state = SignInState.error('Error $e');
       } else {
         state = SignInState.notValid();
       }
@@ -39,8 +39,8 @@ class SignInPhoneModel extends StateNotifier<SignInState> {
       authService.verifyPhone(() {
         state = SignInState.success();
       });
-    } catch (e) {
-      state = SignInState.error(e.message);
+    } on Exception catch (e) {
+      state = SignInState.error('Error $e');
     }
   }
 }

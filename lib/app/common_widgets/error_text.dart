@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class ErrorText extends StatelessWidget {
   const ErrorText({
-    Key key,
-    this.message,
-  }) : super(key: key);
+    super.key,
+    required this.message,
+  });
   final String message;
 
   @override

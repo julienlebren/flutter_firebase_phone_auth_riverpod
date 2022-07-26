@@ -36,7 +36,11 @@ class AppRouter {
           settings: settings,
         );
       default:
-        return null;
+        return MaterialPageRoute(
+          builder: (_) => Scaffold(
+            body: Text("Unknown route $settings.name"),
+          ),
+        );
     }
   }
 }
