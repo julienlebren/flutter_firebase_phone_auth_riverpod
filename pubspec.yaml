@@ -4,24 +4,24 @@ publish_to: 'none'
 version: 1.2.0
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.17.6 <3.0.0"
 
 dependencies:
+  cupertino_icons: ^1.0.5
+  firebase_auth: ^3.5.1
+  firebase_core: ^1.20.0
   flutter:
     sdk: flutter
-  firebase_auth: ^3.3.19
-  firebase_core: ^1.17.1
-  flutter_libphonenumber: 1.1.0
-  flutter_riverpod: ^1.0.3
-  freezed_annotation: ^2.0.3
-  pinput: ^2.2.9
-  cupertino_icons: ^1.0.4
+  flutter_libphonenumber: ^1.2.4
+  flutter_riverpod: ^1.0.4
+  freezed_annotation: ^2.1.0
+  pinput: ^2.2.11
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.1.11
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
   freezed: ^2.0.3+1
   
 flutter:
