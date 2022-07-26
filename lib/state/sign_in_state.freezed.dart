@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'sign_in_state.dart';
 
@@ -9,78 +11,67 @@ part of 'sign_in_state.dart';
 
 T _$identity<T>(T value) => value;
 
-/// @nodoc
-class _$SignInStateTearOff {
-  const _$SignInStateTearOff();
-
-// ignore: unused_element
-  _NotValid notValid() {
-    return const _NotValid();
-  }
-
-// ignore: unused_element
-  _CanSubmit canSubmit() {
-    return const _CanSubmit();
-  }
-
-// ignore: unused_element
-  _Loading loading() {
-    return const _Loading();
-  }
-
-// ignore: unused_element
-  _Success success() {
-    return const _Success();
-  }
-
-// ignore: unused_element
-  _Error error(String errorText) {
-    return _Error(
-      errorText,
-    );
-  }
-}
-
-/// @nodoc
-// ignore: unused_element
-const $SignInState = _$SignInStateTearOff();
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SignInState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult notValid(),
-    @required TResult canSubmit(),
-    @required TResult loading(),
-    @required TResult success(),
-    @required TResult error(String errorText),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() notValid,
+    required TResult Function() canSubmit,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String errorText) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult notValid(),
-    TResult canSubmit(),
-    TResult loading(),
-    TResult success(),
-    TResult error(String errorText),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult notValid(_NotValid value),
-    @required TResult canSubmit(_CanSubmit value),
-    @required TResult loading(_Loading value),
-    @required TResult success(_Success value),
-    @required TResult error(_Error value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult notValid(_NotValid value),
-    TResult canSubmit(_CanSubmit value),
-    TResult loading(_Loading value),
-    TResult success(_Success value),
-    TResult error(_Error value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NotValid value) notValid,
+    required TResult Function(_CanSubmit value) canSubmit,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -100,22 +91,25 @@ class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$NotValidCopyWith<$Res> {
-  factory _$NotValidCopyWith(_NotValid value, $Res Function(_NotValid) then) =
-      __$NotValidCopyWithImpl<$Res>;
+abstract class _$$_NotValidCopyWith<$Res> {
+  factory _$$_NotValidCopyWith(
+          _$_NotValid value, $Res Function(_$_NotValid) then) =
+      __$$_NotValidCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$NotValidCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
-    implements _$NotValidCopyWith<$Res> {
-  __$NotValidCopyWithImpl(_NotValid _value, $Res Function(_NotValid) _then)
-      : super(_value, (v) => _then(v as _NotValid));
+class __$$_NotValidCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
+    implements _$$_NotValidCopyWith<$Res> {
+  __$$_NotValidCopyWithImpl(
+      _$_NotValid _value, $Res Function(_$_NotValid) _then)
+      : super(_value, (v) => _then(v as _$_NotValid));
 
   @override
-  _NotValid get _value => super._value as _NotValid;
+  _$_NotValid get _value => super._value as _$_NotValid;
 }
 
 /// @nodoc
+
 class _$_NotValid with DiagnosticableTreeMixin implements _NotValid {
   const _$_NotValid();
 
@@ -127,12 +121,13 @@ class _$_NotValid with DiagnosticableTreeMixin implements _NotValid {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'SignInState.notValid'));
+    properties.add(DiagnosticsProperty('type', 'SignInState.notValid'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _NotValid);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_NotValid);
   }
 
   @override
@@ -140,32 +135,38 @@ class _$_NotValid with DiagnosticableTreeMixin implements _NotValid {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult notValid(),
-    @required TResult canSubmit(),
-    @required TResult loading(),
-    @required TResult success(),
-    @required TResult error(String errorText),
+  TResult when<TResult extends Object?>({
+    required TResult Function() notValid,
+    required TResult Function() canSubmit,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String errorText) error,
   }) {
-    assert(notValid != null);
-    assert(canSubmit != null);
-    assert(loading != null);
-    assert(success != null);
-    assert(error != null);
     return notValid();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult notValid(),
-    TResult canSubmit(),
-    TResult loading(),
-    TResult success(),
-    TResult error(String errorText),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
   }) {
-    assert(orElse != null);
+    return notValid?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
+    required TResult orElse(),
+  }) {
     if (notValid != null) {
       return notValid();
     }
@@ -174,32 +175,38 @@ class _$_NotValid with DiagnosticableTreeMixin implements _NotValid {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult notValid(_NotValid value),
-    @required TResult canSubmit(_CanSubmit value),
-    @required TResult loading(_Loading value),
-    @required TResult success(_Success value),
-    @required TResult error(_Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NotValid value) notValid,
+    required TResult Function(_CanSubmit value) canSubmit,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
   }) {
-    assert(notValid != null);
-    assert(canSubmit != null);
-    assert(loading != null);
-    assert(success != null);
-    assert(error != null);
     return notValid(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult notValid(_NotValid value),
-    TResult canSubmit(_CanSubmit value),
-    TResult loading(_Loading value),
-    TResult success(_Success value),
-    TResult error(_Error value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
   }) {
-    assert(orElse != null);
+    return notValid?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
     if (notValid != null) {
       return notValid(this);
     }
@@ -212,23 +219,25 @@ abstract class _NotValid implements SignInState {
 }
 
 /// @nodoc
-abstract class _$CanSubmitCopyWith<$Res> {
-  factory _$CanSubmitCopyWith(
-          _CanSubmit value, $Res Function(_CanSubmit) then) =
-      __$CanSubmitCopyWithImpl<$Res>;
+abstract class _$$_CanSubmitCopyWith<$Res> {
+  factory _$$_CanSubmitCopyWith(
+          _$_CanSubmit value, $Res Function(_$_CanSubmit) then) =
+      __$$_CanSubmitCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$CanSubmitCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
-    implements _$CanSubmitCopyWith<$Res> {
-  __$CanSubmitCopyWithImpl(_CanSubmit _value, $Res Function(_CanSubmit) _then)
-      : super(_value, (v) => _then(v as _CanSubmit));
+class __$$_CanSubmitCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
+    implements _$$_CanSubmitCopyWith<$Res> {
+  __$$_CanSubmitCopyWithImpl(
+      _$_CanSubmit _value, $Res Function(_$_CanSubmit) _then)
+      : super(_value, (v) => _then(v as _$_CanSubmit));
 
   @override
-  _CanSubmit get _value => super._value as _CanSubmit;
+  _$_CanSubmit get _value => super._value as _$_CanSubmit;
 }
 
 /// @nodoc
+
 class _$_CanSubmit with DiagnosticableTreeMixin implements _CanSubmit {
   const _$_CanSubmit();
 
@@ -240,12 +249,13 @@ class _$_CanSubmit with DiagnosticableTreeMixin implements _CanSubmit {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'SignInState.canSubmit'));
+    properties.add(DiagnosticsProperty('type', 'SignInState.canSubmit'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _CanSubmit);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CanSubmit);
   }
 
   @override
@@ -253,32 +263,38 @@ class _$_CanSubmit with DiagnosticableTreeMixin implements _CanSubmit {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult notValid(),
-    @required TResult canSubmit(),
-    @required TResult loading(),
-    @required TResult success(),
-    @required TResult error(String errorText),
+  TResult when<TResult extends Object?>({
+    required TResult Function() notValid,
+    required TResult Function() canSubmit,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String errorText) error,
   }) {
-    assert(notValid != null);
-    assert(canSubmit != null);
-    assert(loading != null);
-    assert(success != null);
-    assert(error != null);
     return canSubmit();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult notValid(),
-    TResult canSubmit(),
-    TResult loading(),
-    TResult success(),
-    TResult error(String errorText),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
   }) {
-    assert(orElse != null);
+    return canSubmit?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
+    required TResult orElse(),
+  }) {
     if (canSubmit != null) {
       return canSubmit();
     }
@@ -287,32 +303,38 @@ class _$_CanSubmit with DiagnosticableTreeMixin implements _CanSubmit {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult notValid(_NotValid value),
-    @required TResult canSubmit(_CanSubmit value),
-    @required TResult loading(_Loading value),
-    @required TResult success(_Success value),
-    @required TResult error(_Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NotValid value) notValid,
+    required TResult Function(_CanSubmit value) canSubmit,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
   }) {
-    assert(notValid != null);
-    assert(canSubmit != null);
-    assert(loading != null);
-    assert(success != null);
-    assert(error != null);
     return canSubmit(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult notValid(_NotValid value),
-    TResult canSubmit(_CanSubmit value),
-    TResult loading(_Loading value),
-    TResult success(_Success value),
-    TResult error(_Error value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
   }) {
-    assert(orElse != null);
+    return canSubmit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
     if (canSubmit != null) {
       return canSubmit(this);
     }
@@ -325,22 +347,24 @@ abstract class _CanSubmit implements SignInState {
 }
 
 /// @nodoc
-abstract class _$LoadingCopyWith<$Res> {
-  factory _$LoadingCopyWith(_Loading value, $Res Function(_Loading) then) =
-      __$LoadingCopyWithImpl<$Res>;
+abstract class _$$_LoadingCopyWith<$Res> {
+  factory _$$_LoadingCopyWith(
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$LoadingCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
-    implements _$LoadingCopyWith<$Res> {
-  __$LoadingCopyWithImpl(_Loading _value, $Res Function(_Loading) _then)
-      : super(_value, (v) => _then(v as _Loading));
+class __$$_LoadingCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+      : super(_value, (v) => _then(v as _$_Loading));
 
   @override
-  _Loading get _value => super._value as _Loading;
+  _$_Loading get _value => super._value as _$_Loading;
 }
 
 /// @nodoc
+
 class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   const _$_Loading();
 
@@ -352,12 +376,13 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'SignInState.loading'));
+    properties.add(DiagnosticsProperty('type', 'SignInState.loading'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Loading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Loading);
   }
 
   @override
@@ -365,32 +390,38 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult notValid(),
-    @required TResult canSubmit(),
-    @required TResult loading(),
-    @required TResult success(),
-    @required TResult error(String errorText),
+  TResult when<TResult extends Object?>({
+    required TResult Function() notValid,
+    required TResult Function() canSubmit,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String errorText) error,
   }) {
-    assert(notValid != null);
-    assert(canSubmit != null);
-    assert(loading != null);
-    assert(success != null);
-    assert(error != null);
     return loading();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult notValid(),
-    TResult canSubmit(),
-    TResult loading(),
-    TResult success(),
-    TResult error(String errorText),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
   }) {
-    assert(orElse != null);
+    return loading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
+    required TResult orElse(),
+  }) {
     if (loading != null) {
       return loading();
     }
@@ -399,32 +430,38 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult notValid(_NotValid value),
-    @required TResult canSubmit(_CanSubmit value),
-    @required TResult loading(_Loading value),
-    @required TResult success(_Success value),
-    @required TResult error(_Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NotValid value) notValid,
+    required TResult Function(_CanSubmit value) canSubmit,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
   }) {
-    assert(notValid != null);
-    assert(canSubmit != null);
-    assert(loading != null);
-    assert(success != null);
-    assert(error != null);
     return loading(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult notValid(_NotValid value),
-    TResult canSubmit(_CanSubmit value),
-    TResult loading(_Loading value),
-    TResult success(_Success value),
-    TResult error(_Error value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
   }) {
-    assert(orElse != null);
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
     if (loading != null) {
       return loading(this);
     }
@@ -437,22 +474,24 @@ abstract class _Loading implements SignInState {
 }
 
 /// @nodoc
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
+abstract class _$$_SuccessCopyWith<$Res> {
+  factory _$$_SuccessCopyWith(
+          _$_Success value, $Res Function(_$_Success) then) =
+      __$$_SuccessCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SuccessCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
+class __$$_SuccessCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
+    implements _$$_SuccessCopyWith<$Res> {
+  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+      : super(_value, (v) => _then(v as _$_Success));
 
   @override
-  _Success get _value => super._value as _Success;
+  _$_Success get _value => super._value as _$_Success;
 }
 
 /// @nodoc
+
 class _$_Success with DiagnosticableTreeMixin implements _Success {
   const _$_Success();
 
@@ -464,12 +503,13 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'SignInState.success'));
+    properties.add(DiagnosticsProperty('type', 'SignInState.success'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Success);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Success);
   }
 
   @override
@@ -477,32 +517,38 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult notValid(),
-    @required TResult canSubmit(),
-    @required TResult loading(),
-    @required TResult success(),
-    @required TResult error(String errorText),
+  TResult when<TResult extends Object?>({
+    required TResult Function() notValid,
+    required TResult Function() canSubmit,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String errorText) error,
   }) {
-    assert(notValid != null);
-    assert(canSubmit != null);
-    assert(loading != null);
-    assert(success != null);
-    assert(error != null);
     return success();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult notValid(),
-    TResult canSubmit(),
-    TResult loading(),
-    TResult success(),
-    TResult error(String errorText),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
   }) {
-    assert(orElse != null);
+    return success?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
+    required TResult orElse(),
+  }) {
     if (success != null) {
       return success();
     }
@@ -511,32 +557,38 @@ class _$_Success with DiagnosticableTreeMixin implements _Success {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult notValid(_NotValid value),
-    @required TResult canSubmit(_CanSubmit value),
-    @required TResult loading(_Loading value),
-    @required TResult success(_Success value),
-    @required TResult error(_Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NotValid value) notValid,
+    required TResult Function(_CanSubmit value) canSubmit,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
   }) {
-    assert(notValid != null);
-    assert(canSubmit != null);
-    assert(loading != null);
-    assert(success != null);
-    assert(error != null);
     return success(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult notValid(_NotValid value),
-    TResult canSubmit(_CanSubmit value),
-    TResult loading(_Loading value),
-    TResult success(_Success value),
-    TResult error(_Error value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
   }) {
-    assert(orElse != null);
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
     if (success != null) {
       return success(this);
     }
@@ -549,34 +601,38 @@ abstract class _Success implements SignInState {
 }
 
 /// @nodoc
-abstract class _$ErrorCopyWith<$Res> {
-  factory _$ErrorCopyWith(_Error value, $Res Function(_Error) then) =
-      __$ErrorCopyWithImpl<$Res>;
+abstract class _$$_ErrorCopyWith<$Res> {
+  factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
+      __$$_ErrorCopyWithImpl<$Res>;
   $Res call({String errorText});
 }
 
 /// @nodoc
-class __$ErrorCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
-    implements _$ErrorCopyWith<$Res> {
-  __$ErrorCopyWithImpl(_Error _value, $Res Function(_Error) _then)
-      : super(_value, (v) => _then(v as _Error));
+class __$$_ErrorCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
+    implements _$$_ErrorCopyWith<$Res> {
+  __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
+      : super(_value, (v) => _then(v as _$_Error));
 
   @override
-  _Error get _value => super._value as _Error;
+  _$_Error get _value => super._value as _$_Error;
 
   @override
   $Res call({
-    Object errorText = freezed,
+    Object? errorText = freezed,
   }) {
-    return _then(_Error(
-      errorText == freezed ? _value.errorText : errorText as String,
+    return _then(_$_Error(
+      errorText == freezed
+          ? _value.errorText
+          : errorText // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Error with DiagnosticableTreeMixin implements _Error {
-  const _$_Error(this.errorText) : assert(errorText != null);
+  const _$_Error(this.errorText);
 
   @override
   final String errorText;
@@ -597,49 +653,54 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Error &&
-            (identical(other.errorText, errorText) ||
-                const DeepCollectionEquality()
-                    .equals(other.errorText, errorText)));
+        (other.runtimeType == runtimeType &&
+            other is _$_Error &&
+            const DeepCollectionEquality().equals(other.errorText, errorText));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorText);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(errorText));
 
   @JsonKey(ignore: true)
   @override
-  _$ErrorCopyWith<_Error> get copyWith =>
-      __$ErrorCopyWithImpl<_Error>(this, _$identity);
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult notValid(),
-    @required TResult canSubmit(),
-    @required TResult loading(),
-    @required TResult success(),
-    @required TResult error(String errorText),
+  TResult when<TResult extends Object?>({
+    required TResult Function() notValid,
+    required TResult Function() canSubmit,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function(String errorText) error,
   }) {
-    assert(notValid != null);
-    assert(canSubmit != null);
-    assert(loading != null);
-    assert(success != null);
-    assert(error != null);
     return error(errorText);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult notValid(),
-    TResult canSubmit(),
-    TResult loading(),
-    TResult success(),
-    TResult error(String errorText),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(errorText);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notValid,
+    TResult Function()? canSubmit,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function(String errorText)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(errorText);
     }
@@ -648,32 +709,38 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult notValid(_NotValid value),
-    @required TResult canSubmit(_CanSubmit value),
-    @required TResult loading(_Loading value),
-    @required TResult success(_Success value),
-    @required TResult error(_Error value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NotValid value) notValid,
+    required TResult Function(_CanSubmit value) canSubmit,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Error value) error,
   }) {
-    assert(notValid != null);
-    assert(canSubmit != null);
-    assert(loading != null);
-    assert(success != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult notValid(_NotValid value),
-    TResult canSubmit(_CanSubmit value),
-    TResult loading(_Loading value),
-    TResult success(_Success value),
-    TResult error(_Error value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NotValid value)? notValid,
+    TResult Function(_CanSubmit value)? canSubmit,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this);
     }
@@ -682,9 +749,10 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
 }
 
 abstract class _Error implements SignInState {
-  const factory _Error(String errorText) = _$_Error;
+  const factory _Error(final String errorText) = _$_Error;
 
   String get errorText;
   @JsonKey(ignore: true)
-  _$ErrorCopyWith<_Error> get copyWith;
+  _$$_ErrorCopyWith<_$_Error> get copyWith =>
+      throw _privateConstructorUsedError;
 }

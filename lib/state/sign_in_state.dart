@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 part 'sign_in_state.freezed.dart';
 
 @freezed
-abstract class SignInState with _$SignInState {
+class SignInState with _$SignInState {
   const factory SignInState.notValid() = _NotValid;
   const factory SignInState.canSubmit() = _CanSubmit;
   const factory SignInState.loading() = _Loading;

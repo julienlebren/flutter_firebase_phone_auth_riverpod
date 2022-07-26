@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'auth_state.dart';
 
@@ -9,62 +11,55 @@ part of 'auth_state.dart';
 
 T _$identity<T>(T value) => value;
 
-/// @nodoc
-class _$AuthStateTearOff {
-  const _$AuthStateTearOff();
-
-// ignore: unused_element
-  _AuthStateInitializing initializing() {
-    return const _AuthStateInitializing();
-  }
-
-// ignore: unused_element
-  _AuthStateReady ready(CountryWithPhoneCode country) {
-    return _AuthStateReady(
-      country,
-    );
-  }
-
-// ignore: unused_element
-  _AuthStateError error(String errorText) {
-    return _AuthStateError(
-      errorText,
-    );
-  }
-}
-
-/// @nodoc
-// ignore: unused_element
-const $AuthState = _$AuthStateTearOff();
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AuthState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initializing(),
-    @required TResult ready(CountryWithPhoneCode country),
-    @required TResult error(String errorText),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializing,
+    required TResult Function(CountryWithPhoneCode country) ready,
+    required TResult Function(String errorText) error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initializing(),
-    TResult ready(CountryWithPhoneCode country),
-    TResult error(String errorText),
-    @required TResult orElse(),
-  });
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializing,
+    TResult Function(CountryWithPhoneCode country)? ready,
+    TResult Function(String errorText)? error,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initializing(_AuthStateInitializing value),
-    @required TResult ready(_AuthStateReady value),
-    @required TResult error(_AuthStateError value),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializing,
+    TResult Function(CountryWithPhoneCode country)? ready,
+    TResult Function(String errorText)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initializing(_AuthStateInitializing value),
-    TResult ready(_AuthStateReady value),
-    TResult error(_AuthStateError value),
-    @required TResult orElse(),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthStateInitializing value) initializing,
+    required TResult Function(_AuthStateReady value) ready,
+    required TResult Function(_AuthStateError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AuthStateInitializing value)? initializing,
+    TResult Function(_AuthStateReady value)? ready,
+    TResult Function(_AuthStateError value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthStateInitializing value)? initializing,
+    TResult Function(_AuthStateReady value)? ready,
+    TResult Function(_AuthStateError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -83,25 +78,27 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AuthStateInitializingCopyWith<$Res> {
-  factory _$AuthStateInitializingCopyWith(_AuthStateInitializing value,
-          $Res Function(_AuthStateInitializing) then) =
-      __$AuthStateInitializingCopyWithImpl<$Res>;
+abstract class _$$_AuthStateInitializingCopyWith<$Res> {
+  factory _$$_AuthStateInitializingCopyWith(_$_AuthStateInitializing value,
+          $Res Function(_$_AuthStateInitializing) then) =
+      __$$_AuthStateInitializingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AuthStateInitializingCopyWithImpl<$Res>
+class __$$_AuthStateInitializingCopyWithImpl<$Res>
     extends _$AuthStateCopyWithImpl<$Res>
-    implements _$AuthStateInitializingCopyWith<$Res> {
-  __$AuthStateInitializingCopyWithImpl(_AuthStateInitializing _value,
-      $Res Function(_AuthStateInitializing) _then)
-      : super(_value, (v) => _then(v as _AuthStateInitializing));
+    implements _$$_AuthStateInitializingCopyWith<$Res> {
+  __$$_AuthStateInitializingCopyWithImpl(_$_AuthStateInitializing _value,
+      $Res Function(_$_AuthStateInitializing) _then)
+      : super(_value, (v) => _then(v as _$_AuthStateInitializing));
 
   @override
-  _AuthStateInitializing get _value => super._value as _AuthStateInitializing;
+  _$_AuthStateInitializing get _value =>
+      super._value as _$_AuthStateInitializing;
 }
 
 /// @nodoc
+
 class _$_AuthStateInitializing implements _AuthStateInitializing {
   const _$_AuthStateInitializing();
 
@@ -112,7 +109,8 @@ class _$_AuthStateInitializing implements _AuthStateInitializing {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _AuthStateInitializing);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_AuthStateInitializing);
   }
 
   @override
@@ -120,26 +118,32 @@ class _$_AuthStateInitializing implements _AuthStateInitializing {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initializing(),
-    @required TResult ready(CountryWithPhoneCode country),
-    @required TResult error(String errorText),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializing,
+    required TResult Function(CountryWithPhoneCode country) ready,
+    required TResult Function(String errorText) error,
   }) {
-    assert(initializing != null);
-    assert(ready != null);
-    assert(error != null);
     return initializing();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initializing(),
-    TResult ready(CountryWithPhoneCode country),
-    TResult error(String errorText),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializing,
+    TResult Function(CountryWithPhoneCode country)? ready,
+    TResult Function(String errorText)? error,
   }) {
-    assert(orElse != null);
+    return initializing?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializing,
+    TResult Function(CountryWithPhoneCode country)? ready,
+    TResult Function(String errorText)? error,
+    required TResult orElse(),
+  }) {
     if (initializing != null) {
       return initializing();
     }
@@ -148,26 +152,32 @@ class _$_AuthStateInitializing implements _AuthStateInitializing {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initializing(_AuthStateInitializing value),
-    @required TResult ready(_AuthStateReady value),
-    @required TResult error(_AuthStateError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthStateInitializing value) initializing,
+    required TResult Function(_AuthStateReady value) ready,
+    required TResult Function(_AuthStateError value) error,
   }) {
-    assert(initializing != null);
-    assert(ready != null);
-    assert(error != null);
     return initializing(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initializing(_AuthStateInitializing value),
-    TResult ready(_AuthStateReady value),
-    TResult error(_AuthStateError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AuthStateInitializing value)? initializing,
+    TResult Function(_AuthStateReady value)? ready,
+    TResult Function(_AuthStateError value)? error,
   }) {
-    assert(orElse != null);
+    return initializing?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthStateInitializing value)? initializing,
+    TResult Function(_AuthStateReady value)? ready,
+    TResult Function(_AuthStateError value)? error,
+    required TResult orElse(),
+  }) {
     if (initializing != null) {
       return initializing(this);
     }
@@ -180,36 +190,41 @@ abstract class _AuthStateInitializing implements AuthState {
 }
 
 /// @nodoc
-abstract class _$AuthStateReadyCopyWith<$Res> {
-  factory _$AuthStateReadyCopyWith(
-          _AuthStateReady value, $Res Function(_AuthStateReady) then) =
-      __$AuthStateReadyCopyWithImpl<$Res>;
+abstract class _$$_AuthStateReadyCopyWith<$Res> {
+  factory _$$_AuthStateReadyCopyWith(
+          _$_AuthStateReady value, $Res Function(_$_AuthStateReady) then) =
+      __$$_AuthStateReadyCopyWithImpl<$Res>;
   $Res call({CountryWithPhoneCode country});
 }
 
 /// @nodoc
-class __$AuthStateReadyCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
-    implements _$AuthStateReadyCopyWith<$Res> {
-  __$AuthStateReadyCopyWithImpl(
-      _AuthStateReady _value, $Res Function(_AuthStateReady) _then)
-      : super(_value, (v) => _then(v as _AuthStateReady));
+class __$$_AuthStateReadyCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res>
+    implements _$$_AuthStateReadyCopyWith<$Res> {
+  __$$_AuthStateReadyCopyWithImpl(
+      _$_AuthStateReady _value, $Res Function(_$_AuthStateReady) _then)
+      : super(_value, (v) => _then(v as _$_AuthStateReady));
 
   @override
-  _AuthStateReady get _value => super._value as _AuthStateReady;
+  _$_AuthStateReady get _value => super._value as _$_AuthStateReady;
 
   @override
   $Res call({
-    Object country = freezed,
+    Object? country = freezed,
   }) {
-    return _then(_AuthStateReady(
-      country == freezed ? _value.country : country as CountryWithPhoneCode,
+    return _then(_$_AuthStateReady(
+      country == freezed
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
+              as CountryWithPhoneCode,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_AuthStateReady implements _AuthStateReady {
-  const _$_AuthStateReady(this.country) : assert(country != null);
+  const _$_AuthStateReady(this.country);
 
   @override
   final CountryWithPhoneCode country;
@@ -222,42 +237,48 @@ class _$_AuthStateReady implements _AuthStateReady {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AuthStateReady &&
-            (identical(other.country, country) ||
-                const DeepCollectionEquality().equals(other.country, country)));
+        (other.runtimeType == runtimeType &&
+            other is _$_AuthStateReady &&
+            const DeepCollectionEquality().equals(other.country, country));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(country);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(country));
 
   @JsonKey(ignore: true)
   @override
-  _$AuthStateReadyCopyWith<_AuthStateReady> get copyWith =>
-      __$AuthStateReadyCopyWithImpl<_AuthStateReady>(this, _$identity);
+  _$$_AuthStateReadyCopyWith<_$_AuthStateReady> get copyWith =>
+      __$$_AuthStateReadyCopyWithImpl<_$_AuthStateReady>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initializing(),
-    @required TResult ready(CountryWithPhoneCode country),
-    @required TResult error(String errorText),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializing,
+    required TResult Function(CountryWithPhoneCode country) ready,
+    required TResult Function(String errorText) error,
   }) {
-    assert(initializing != null);
-    assert(ready != null);
-    assert(error != null);
     return ready(country);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initializing(),
-    TResult ready(CountryWithPhoneCode country),
-    TResult error(String errorText),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializing,
+    TResult Function(CountryWithPhoneCode country)? ready,
+    TResult Function(String errorText)? error,
   }) {
-    assert(orElse != null);
+    return ready?.call(country);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializing,
+    TResult Function(CountryWithPhoneCode country)? ready,
+    TResult Function(String errorText)? error,
+    required TResult orElse(),
+  }) {
     if (ready != null) {
       return ready(country);
     }
@@ -266,26 +287,32 @@ class _$_AuthStateReady implements _AuthStateReady {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initializing(_AuthStateInitializing value),
-    @required TResult ready(_AuthStateReady value),
-    @required TResult error(_AuthStateError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthStateInitializing value) initializing,
+    required TResult Function(_AuthStateReady value) ready,
+    required TResult Function(_AuthStateError value) error,
   }) {
-    assert(initializing != null);
-    assert(ready != null);
-    assert(error != null);
     return ready(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initializing(_AuthStateInitializing value),
-    TResult ready(_AuthStateReady value),
-    TResult error(_AuthStateError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AuthStateInitializing value)? initializing,
+    TResult Function(_AuthStateReady value)? ready,
+    TResult Function(_AuthStateError value)? error,
   }) {
-    assert(orElse != null);
+    return ready?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthStateInitializing value)? initializing,
+    TResult Function(_AuthStateReady value)? ready,
+    TResult Function(_AuthStateError value)? error,
+    required TResult orElse(),
+  }) {
     if (ready != null) {
       return ready(this);
     }
@@ -294,45 +321,51 @@ class _$_AuthStateReady implements _AuthStateReady {
 }
 
 abstract class _AuthStateReady implements AuthState {
-  const factory _AuthStateReady(CountryWithPhoneCode country) =
+  const factory _AuthStateReady(final CountryWithPhoneCode country) =
       _$_AuthStateReady;
 
   CountryWithPhoneCode get country;
   @JsonKey(ignore: true)
-  _$AuthStateReadyCopyWith<_AuthStateReady> get copyWith;
+  _$$_AuthStateReadyCopyWith<_$_AuthStateReady> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$AuthStateErrorCopyWith<$Res> {
-  factory _$AuthStateErrorCopyWith(
-          _AuthStateError value, $Res Function(_AuthStateError) then) =
-      __$AuthStateErrorCopyWithImpl<$Res>;
+abstract class _$$_AuthStateErrorCopyWith<$Res> {
+  factory _$$_AuthStateErrorCopyWith(
+          _$_AuthStateError value, $Res Function(_$_AuthStateError) then) =
+      __$$_AuthStateErrorCopyWithImpl<$Res>;
   $Res call({String errorText});
 }
 
 /// @nodoc
-class __$AuthStateErrorCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
-    implements _$AuthStateErrorCopyWith<$Res> {
-  __$AuthStateErrorCopyWithImpl(
-      _AuthStateError _value, $Res Function(_AuthStateError) _then)
-      : super(_value, (v) => _then(v as _AuthStateError));
+class __$$_AuthStateErrorCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res>
+    implements _$$_AuthStateErrorCopyWith<$Res> {
+  __$$_AuthStateErrorCopyWithImpl(
+      _$_AuthStateError _value, $Res Function(_$_AuthStateError) _then)
+      : super(_value, (v) => _then(v as _$_AuthStateError));
 
   @override
-  _AuthStateError get _value => super._value as _AuthStateError;
+  _$_AuthStateError get _value => super._value as _$_AuthStateError;
 
   @override
   $Res call({
-    Object errorText = freezed,
+    Object? errorText = freezed,
   }) {
-    return _then(_AuthStateError(
-      errorText == freezed ? _value.errorText : errorText as String,
+    return _then(_$_AuthStateError(
+      errorText == freezed
+          ? _value.errorText
+          : errorText // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_AuthStateError implements _AuthStateError {
-  const _$_AuthStateError(this.errorText) : assert(errorText != null);
+  const _$_AuthStateError(this.errorText);
 
   @override
   final String errorText;
@@ -345,43 +378,48 @@ class _$_AuthStateError implements _AuthStateError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AuthStateError &&
-            (identical(other.errorText, errorText) ||
-                const DeepCollectionEquality()
-                    .equals(other.errorText, errorText)));
+        (other.runtimeType == runtimeType &&
+            other is _$_AuthStateError &&
+            const DeepCollectionEquality().equals(other.errorText, errorText));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(errorText);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(errorText));
 
   @JsonKey(ignore: true)
   @override
-  _$AuthStateErrorCopyWith<_AuthStateError> get copyWith =>
-      __$AuthStateErrorCopyWithImpl<_AuthStateError>(this, _$identity);
+  _$$_AuthStateErrorCopyWith<_$_AuthStateError> get copyWith =>
+      __$$_AuthStateErrorCopyWithImpl<_$_AuthStateError>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initializing(),
-    @required TResult ready(CountryWithPhoneCode country),
-    @required TResult error(String errorText),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializing,
+    required TResult Function(CountryWithPhoneCode country) ready,
+    required TResult Function(String errorText) error,
   }) {
-    assert(initializing != null);
-    assert(ready != null);
-    assert(error != null);
     return error(errorText);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initializing(),
-    TResult ready(CountryWithPhoneCode country),
-    TResult error(String errorText),
-    @required TResult orElse(),
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializing,
+    TResult Function(CountryWithPhoneCode country)? ready,
+    TResult Function(String errorText)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(errorText);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializing,
+    TResult Function(CountryWithPhoneCode country)? ready,
+    TResult Function(String errorText)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(errorText);
     }
@@ -390,26 +428,32 @@ class _$_AuthStateError implements _AuthStateError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initializing(_AuthStateInitializing value),
-    @required TResult ready(_AuthStateReady value),
-    @required TResult error(_AuthStateError value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AuthStateInitializing value) initializing,
+    required TResult Function(_AuthStateReady value) ready,
+    required TResult Function(_AuthStateError value) error,
   }) {
-    assert(initializing != null);
-    assert(ready != null);
-    assert(error != null);
     return error(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initializing(_AuthStateInitializing value),
-    TResult ready(_AuthStateReady value),
-    TResult error(_AuthStateError value),
-    @required TResult orElse(),
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AuthStateInitializing value)? initializing,
+    TResult Function(_AuthStateReady value)? ready,
+    TResult Function(_AuthStateError value)? error,
   }) {
-    assert(orElse != null);
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AuthStateInitializing value)? initializing,
+    TResult Function(_AuthStateReady value)? ready,
+    TResult Function(_AuthStateError value)? error,
+    required TResult orElse(),
+  }) {
     if (error != null) {
       return error(this);
     }
@@ -418,9 +462,10 @@ class _$_AuthStateError implements _AuthStateError {
 }
 
 abstract class _AuthStateError implements AuthState {
-  const factory _AuthStateError(String errorText) = _$_AuthStateError;
+  const factory _AuthStateError(final String errorText) = _$_AuthStateError;
 
   String get errorText;
   @JsonKey(ignore: true)
-  _$AuthStateErrorCopyWith<_AuthStateError> get copyWith;
+  _$$_AuthStateErrorCopyWith<_$_AuthStateError> get copyWith =>
+      throw _privateConstructorUsedError;
 }
